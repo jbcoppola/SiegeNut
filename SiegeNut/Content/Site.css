@@ -1,0 +1,110 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+	font-family: 'Libre Baskerville', serif;
+	background-color: rgb(85,12,5);
+}
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.col-md-4 h2,
+.jumbotron .lead,
+.review-box .panel-heading,
+.gold-box h2,
+.navbar .navbar-collapse {
+	font-family: 'Playfair Display SC', serif;
+}
+hr {
+	border: 1px goldenrod;
+}
+.col-md-4 h2 {
+	padding: 4px;
+	background-color: #ffefaf;
+	border: 3px solid #edc867;
+}
+
+/*NAVBAR*/
+
+.navbar .navbar-collapse {
+	text-align: center;
+}
+.navbar-inverse {
+	background-color: #fff3c5;
+	border-bottom: 3px solid rgb(85,12,5);
+}
+.navbar-inverse .navbar-brand {
+	color: black;
+	padding: 17px;
+}
+.navbar-inverse .navbar-nav li a {
+	color: black;
+}
+
+/*JUMBOTRON*/
+
+.jumbotron {
+	text-align: center;
+	background-image: url('../images/red paisley pattern.jpg');
+	border: 5px solid #edc867;
+    border-radius: 0px;
+    margin: 0px;
+}
+.jumbotron h1,
+.navbar-brand {
+	font-family: 'Kumar One', cursive;
+}
+
+/*TEXT BOXES AND BORDERS*/
+.major-content {
+	background-color: #ffeca2;
+	border: 3px solid maroon;
+	margin-bottom: 50px;
+}
+.outer-border {
+	border: 5px solid #edc867;
+	padding: 0px 15px;
+}
+.review-box {
+	border: 3px solid maroon;
+	background-color: #ffeca2;
+	border-radius: 0px;
+	margin-bottom: 0px;
+}
+.review-box .panel-heading h2 {
+	margin: 0px;
+}
+.review-box .title {
+	font-weight: bold;
+}
+.review-box .rating p,.title p{
+	margin-bottom: 5px;
+}
+.review-box .content p {
+	margin-top: 5px;
+}
+.spaced-box {
+	margin: 10px 0px;
+}
+.details-box {
+	padding: 0px 30px;
+}
+.details-box .col-xs-2 {
+	text-align: right;
+	font-weight: bold;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 1000px;
+}
+
+/*FOOTER*/
