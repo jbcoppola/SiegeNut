@@ -17,7 +17,7 @@
                 @RenderSection("FloralHeader", required: false)
             </div>
         }
-        else
+        else if (IsSectionDefined("Header"))
         {
             <div class="content header-content">
                 @RenderSection("Header", required:false)

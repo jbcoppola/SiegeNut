@@ -46,7 +46,7 @@ namespace SiegeNut.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Stars,Title,DateWritten,MainText")] Review review)
+        public ActionResult Create([Bind(Include = "ID,Rating,Title,DateWritten,MainText")] Review review)
         {
             if (ModelState.IsValid)
             {
