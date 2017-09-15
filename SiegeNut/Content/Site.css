@@ -6,21 +6,57 @@
 .header-content {
     text-align: center;
 }
+a, a:hover, a:focus {
+    outline: 0;
+}
 .body-content {
-    padding: 20px 50px;
-	border: 3px solid maroon;
 }
 .footer-content {
-	border: 3px solid maroon;
 }
-
 .content {
+    border: 3px solid maroon;
+    padding: 20px 50px;
 	background-color: #ffeca2;
 	margin-bottom: 50px;
 }
-.col-md-4 h2,
+h1 {
+    font-family: 'Kumar One';
+    font-size: 60px;
+}
+h2, h3, h4, h5, h6,
 .navbar .navbar-collapse {
 	font-family: 'Playfair Display SC', serif;
+}
+/*NAVBAR*/
+
+.navbar .navbar-collapse {
+	text-align: center;
+}
+.navbar-inverse {
+	background-color: #fff3c5;
+	border-bottom: 3px solid rgb(85,12,5);
+}
+.navbar-brand {
+    padding-top: 17px;
+}
+.navbar-inverse .navbar-brand {
+	color: black;
+}
+.navbar-inverse .navbar-nav li a {
+	color: black;
+    padding-bottom: 17px;
+}
+.navbar-inverse .navbar-nav {
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-nav > li > a:focus {
+    background-color: goldenrod;
+}
+.navbar-inverse .navbar-brand:active,
+.navbar-inverse .navbar-nav > li > a:active {
+    background-color: darkgoldenrod;
 }
 .front-page .col-md-4 {
     padding: 20px;
@@ -34,6 +70,7 @@
     background-image: url('../images/red paisley pattern.jpg');
     padding: 60px;
     border: 5px solid goldenrod;
+    margin-bottom: 50px;
 }
 .container .jumbotron {
     border-radius: 0px;
@@ -46,26 +83,10 @@
     background-color: #ffefaf;
 }
 .floral-border .jumbotron h1 {
-    font-family: 'Kumar One', cursive;
     font-size: 80px;
     margin-bottom: 0px;
 }
-/*NAVBAR*/
 
-.navbar .navbar-collapse {
-	text-align: center;
-}
-.navbar-inverse {
-	background-color: #fff3c5;
-	border-bottom: 3px solid rgb(85,12,5);
-}
-.navbar-inverse .navbar-brand {
-	color: black;
-	padding: 17px;
-}
-.navbar-inverse .navbar-nav li a {
-	color: black;
-}
 
 /*JUMBOTRON*/
 

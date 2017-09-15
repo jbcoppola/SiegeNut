@@ -11,9 +11,18 @@
 <body>
     @Html.Partial("_Navbar")
     <div class="container">
-        <div class="content header-content">
-            @RenderSection("Header", required:false)
-        </div>
+        @if (IsSectionDefined("FloralHeader"))
+        {
+            <div class="floral-border">
+                @RenderSection("FloralHeader", required: false)
+            </div>
+        }
+        else
+        {
+            <div class="content header-content">
+                @RenderSection("Header", required:false)
+             </div>
+        }
         <div class="content body-content">
             @RenderBody()
         </div>
