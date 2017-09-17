@@ -165,6 +165,18 @@
     <Compile Include="Migrations\201709151951349_init.Designer.cs">
       <DependentUpon>201709151951349_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709171709504_add Categories.cs" />
+    <Compile Include="Migrations\201709171709504_add Categories.Designer.cs">
+      <DependentUpon>201709171709504_add Categories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709171735139_Seed-8.cs" />
+    <Compile Include="Migrations\201709171735139_Seed-8.Designer.cs">
+      <DependentUpon>201709171735139_Seed-8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709171752427_update to datetime2.cs" />
+    <Compile Include="Migrations\201709171752427_update to datetime2.Designer.cs">
+      <DependentUpon>201709171752427_update to datetime2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\SiegeNutContext.cs" />
@@ -230,6 +242,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709151951349_init.resx">
       <DependentUpon>201709151951349_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709171709504_add Categories.resx">
+      <DependentUpon>201709171709504_add Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709171735139_Seed-8.resx">
+      <DependentUpon>201709171735139_Seed-8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709171752427_update to datetime2.resx">
+      <DependentUpon>201709171752427_update to datetime2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
