@@ -3,48 +3,32 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
+@section Header {
+<h1>Details</h1>
+}
 
 <div>
     <h4>Review</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-
-        <dd>
+    <div class="row review">
+        <div class="col-md-12">
+            <strong>@Html.DisplayNameFor(model => model.Rating):</strong>
             @Html.DisplayFor(model => model.Rating)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateWritten)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateWritten)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MainText)
-        </dt>
-
-        <dd>
+        </div>
+        <div class="col-md-12">
+            <strong>@Html.DisplayFor(model => model.Title)</strong>
+        </div>
+        <div class="col-md-12">
+            <strong>@Html.DisplayFor(model => model.Author)</strong> on
+            @Model.DateWritten.ToString("MMM dd, yyyy")
+        </div>
+        <div class="col-md-12">
             @Html.DisplayFor(model => model.MainText)
-        </dd>
-
-    </dl>
+        </div>
+        <div class="col-md-12">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
+        </div>
+    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
 </p>

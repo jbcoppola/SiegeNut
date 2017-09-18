@@ -4,8 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+@section Header {
+    <h1>Index</h1>
+    }
 <p>
     @Html.ActionLink("Create New", "Create", null, new {@class="btn"})
 </p>

@@ -3,9 +3,9 @@
 @{
     ViewBag.Title = "Edit";
 }
-
-<h2>Edit</h2>
-
+@section Header {
+<h1>Edit</h1>
+}
 
 @using (Html.BeginForm())
 {
@@ -47,11 +47,13 @@
             </div>
         </div>
     </div>
+
+    <div>
+        @Html.ActionLink("Details", "Details", new { id = Model.ID }, new { @class = "btn" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
+    </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
