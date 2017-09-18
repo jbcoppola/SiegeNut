@@ -86,14 +86,29 @@ h2, h3, h4, h5, h6,
     font-size: 80px;
     margin-bottom: 0px;
 }
-
-
-/*JUMBOTRON*/
-
 .navbar-brand {
 	font-family: 'Kumar One', cursive;
 }
-
+.review {
+    background-color: #ffefaf;
+    padding: 20px;
+    margin: 20px;
+    border: 3px solid #edc867;
+}
+.review .col-md-12 {
+    margin: 15px 0px;
+}
+.review .col-md-12:last-of-type {
+    margin-top: 30px;
+}
+.btn {
+    border: 2px solid #edc867;
+    background-color: transparent;
+    color: gray;
+}
+.btn:hover {
+    background-color: #edc867;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */

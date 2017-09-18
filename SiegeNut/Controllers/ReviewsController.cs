@@ -77,6 +77,31 @@ namespace SiegeNut.Controllers
         // POST: Reviews/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection form)
+        {
+            var model = db.Reviews.Find(id);
+
+            //make sure that the model exists in our database
+            if (model == null)
+            {
+                return new HttpNotFoundResult();
+            }
+            if (TryUpdateModel(model, new string[] { "Rating", "Title", "MainText" }))
+            {
+                db.SaveChanges();
+                return RedirectToAction("Index"); //or wherever you want to go
+            }
+            else  //TryUpdateModel returns false on a validation error
+            {
+                //return to the view and give the user a chance to fix the validation error(s)
+                return View("Edit", model);
+            }
+
+
+        }
+        /*
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Stars,Title,DateWritten,MainText")] Review review)
@@ -89,7 +114,7 @@ namespace SiegeNut.Controllers
             }
             return View(review);
         }
-
+        */
         // GET: Reviews/Delete/5
         public ActionResult Delete(int? id)
         {
