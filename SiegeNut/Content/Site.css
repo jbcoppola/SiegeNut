@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 60px;
 	font-family: 'Libre Baskerville', serif;
 	background-color: rgb(85,12,5);
 }
@@ -9,15 +9,20 @@
 a, a:hover, a:focus {
     outline: 0;
 }
-.body-content {
-}
-.footer-content {
-}
 .content {
-    border: 3px solid maroon;
+    border: 4px solid rgb(85,12,5);
     padding: 20px 50px;
 	background-color: #ffeca2;
+}
+.gold-border {
+    border: 5px solid goldenrod;
 	margin-bottom: 50px;
+}
+footer {
+    padding: 10px 0px;
+}
+footer p {
+    margin: 0px;
 }
 h1 {
     font-family: 'Kumar One';
@@ -34,7 +39,7 @@ h2, h3, h4, h5, h6,
 }
 .navbar-inverse {
 	background-color: #fff3c5;
-	border-bottom: 3px solid rgb(85,12,5);
+	border-bottom: none;
 }
 .navbar-brand {
     padding-top: 17px;
@@ -69,8 +74,6 @@ h2, h3, h4, h5, h6,
 .floral-border {
     background-image: url('../images/red paisley pattern.jpg');
     padding: 60px;
-    border: 5px solid goldenrod;
-    margin-bottom: 50px;
 }
 .container .jumbotron {
     border-radius: 0px;
@@ -108,6 +111,8 @@ h2, h3, h4, h5, h6,
 }
 .btn:hover {
     background-color: #edc867;
+    border-color: #edc867;
+    color: darkslategray;
 }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 

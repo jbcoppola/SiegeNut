@@ -6,30 +6,36 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="https://fonts.googleapis.com/css?family=Kumar+One|Libre+Baskerville|Playfair+Display+SC" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Kumar+One|Libre+Baskerville|Playfair+Display+SC" rel="stylesheet">
 </head>
 <body>
     @Html.Partial("_Navbar")
     <div class="container">
-        @if (IsSectionDefined("FloralHeader"))
-        {
-            <div class="floral-border">
-                @RenderSection("FloralHeader", required: false)
-            </div>
-        }
-        else if (IsSectionDefined("Header"))
-        {
-            <div class="content header-content">
-                @RenderSection("Header", required:false)
-             </div>
-        }
-        <div class="content body-content">
-            @RenderBody()
+        <div class="gold-border">
+            @if (IsSectionDefined("FloralHeader"))
+            {
+                <div class="floral-border">
+                    @RenderSection("FloralHeader", required: false)
+                </div>
+            }
+            else if (IsSectionDefined("Header"))
+            {
+                <div class="content header-content">
+                    @RenderSection("Header", required: false)
+                </div>
+            }
         </div>
-        <div class="content footer-content">
-            <footer>
-                <p>&copy; @DateTime.Now.Year - SiegeNut</p>
-            </footer>
+        <div class="gold-border">
+            <div class="content body-content">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="gold-border">
+            <div class="content footer-content">
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - SiegeNut</p>
+                </footer>
+            </div>
         </div>
     </div>
 
