@@ -3,28 +3,33 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    <title>SiegeNut: @ViewBag.Title</title>
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/bootstrap")
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Kumar+One|Libre+Baskerville|Playfair+Display+SC" rel="stylesheet">
 </head>
 <body>
     @Html.Partial("_Navbar")
     <div class="container">
-        <div class="gold-border">
-            @if (IsSectionDefined("FloralHeader"))
+
+        @if (IsSectionDefined("FloralHeader"))
             {
+            <div class="gold-border">
                 <div class="floral-border">
                     @RenderSection("FloralHeader", required: false)
                 </div>
-            }
-            else if (IsSectionDefined("Header"))
-            {
+            </div>
+        }
+
+        else if (IsSectionDefined("Header"))
+        {
+            <div class="gold-border">
                 <div class="content header-content">
                     @RenderSection("Header", required: false)
                 </div>
-            }
-        </div>
+            </div>
+        }
         <div class="gold-border">
             <div class="content body-content">
                 @RenderBody()
@@ -40,7 +45,7 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootstrapscripts")
     @RenderSection("scripts", required: false)
 </body>
 </html>
