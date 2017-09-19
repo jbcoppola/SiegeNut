@@ -98,6 +98,9 @@ h2, h3, h4, h5, h6,
     margin: 20px;
     border: 3px solid #edc867;
 }
+textarea.form-control {
+    height: 300px;
+}
 .review .col-md-12 {
     margin: 15px 0px;
 }
@@ -105,14 +108,21 @@ h2, h3, h4, h5, h6,
     margin-top: 30px;
 }
 .btn {
-    border: 2px solid #edc867;
+    border: 1px solid #edc867;
     background-color: transparent;
     color: gray;
+    font-family: 'Playfair Display SC', serif;
 }
 .btn:hover {
     background-color: #edc867;
     border-color: #edc867;
     color: darkslategray;
+}
+.btn-create {
+    margin-left: 20px;
+    padding: 30px;
+    font-size: 20px;
+    border: 3px solid #edc867;
 }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 

@@ -6,12 +6,14 @@
 
 @section Header {
     <h1>Index</h1>
-    }
-<p>
-    @Html.ActionLink("Create New", "Create", null, new {@class="btn"})
-</p>
+}
 
-@foreach (var item in Model) {
+
+@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-create" })
+
+
+@foreach (var item in Model)
+{
     <div class="row review">
         <div class="col-md-12">
             <strong>@Html.DisplayNameFor(model => model.Rating):</strong>
@@ -21,7 +23,7 @@
             <strong>@Html.DisplayFor(modelItem => item.Title)</strong>
         </div>
         <div class="col-md-12">
-            <strong>@Html.DisplayFor(modelItem => item.Author)</strong> on 
+            <strong>@Html.DisplayFor(modelItem => item.Author)</strong> on
             @item.DateWritten.ToString("MMM dd, yyyy")
         </div>
         <div class="col-md-12">
