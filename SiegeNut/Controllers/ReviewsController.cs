@@ -46,7 +46,7 @@ namespace SiegeNut.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Rating,Title,DateWritten,MainText")] Review review)
+        public ActionResult Create([Bind(Include = "ID,Product,Rating,Title,DateWritten,MainText")] Review review)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace SiegeNut.Controllers
             {
                 return new HttpNotFoundResult();
             }
-            if (TryUpdateModel(model, new string[] { "Rating", "Title", "MainText" }))
+            if (TryUpdateModel(model, new string[] { "Product", "Rating", "Title", "MainText" }))
             {
                 db.SaveChanges();
                 return RedirectToAction("Index"); //or wherever you want to go

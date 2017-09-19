@@ -11,8 +11,22 @@
 {
     @Html.AntiForgeryToken()
     
+
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Product, new List<SelectListItem>
+    {
+                        new SelectListItem() {Text = "Trebuchet", Value="Trebuchet"},
+                        new SelectListItem() {Text = "Portcullis", Value="Portcullis"},
+                        new SelectListItem() {Text = "Battering Ram", Value="Battering Ram"}
+    }, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Product, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Rating,htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
