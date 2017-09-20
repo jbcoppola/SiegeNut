@@ -3,14 +3,14 @@
 @{
     ViewBag.Title = "Edit";
 }
-@section Header {
-    <h1>Edit</h1>
-}
+
+<h2>Edit</h2>
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <h4>Review</h4>
         <hr />
@@ -18,15 +18,10 @@
         @Html.HiddenFor(model => model.ID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Product, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ProductID, "ProductID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Product, new List<SelectListItem>
-    {
-                        new SelectListItem() {Text = "Trebuchet", Value="Trebuchet"},
-                        new SelectListItem() {Text = "Portcullis", Value="Portcullis"},
-                        new SelectListItem() {Text = "Battering Ram", Value="Battering Ram"}
-    }, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Product, "", new { @class = "text-danger" })
+                @Html.DropDownList("ProductID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProductID, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -39,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, "Title", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
@@ -47,10 +42,26 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MainText, "Review", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DateWritten, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.MainText, new { @class = "form-control" })
+                @Html.EditorFor(model => model.DateWritten, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateWritten, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MainText, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MainText, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MainText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AuthorID, "AuthorID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("AuthorID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AuthorID, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -60,13 +71,11 @@
             </div>
         </div>
     </div>
-
-    <div>
-        @Html.ActionLink("Details", "Details", new { id = Model.ID }, new { @class = "btn" })
-        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
-    </div>
 }
 
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

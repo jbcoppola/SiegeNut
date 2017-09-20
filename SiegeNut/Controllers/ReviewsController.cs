@@ -7,17 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SiegeNut.Models;
+using Microsoft.AspNet.Identity;
 
 namespace SiegeNut.Controllers
 {
     public class ReviewsController : Controller
     {
-        private SiegeNutContext db = new SiegeNutContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Reviews
         public ActionResult Index()
         {
-            return View(db.Reviews.ToList());
+            var reviews = db.Reviews.Include(r => r.Author).Include(r => r.Product);
+            return View(reviews.ToList());
         }
 
         // GET: Reviews/Details/5
@@ -38,6 +40,7 @@ namespace SiegeNut.Controllers
         // GET: Reviews/Create
         public ActionResult Create()
         {
+            ViewBag.ProductID = new SelectList(db.Products, "ID", "Name");
             return View();
         }
 
@@ -46,16 +49,18 @@ namespace SiegeNut.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Product,Rating,Title,DateWritten,MainText")] Review review)
+        public ActionResult Create([Bind(Include = "ID,ProductID,Rating,Title,DateWritten,MainText,AuthorID")] Review review)
         {
             if (ModelState.IsValid)
             {
                 review.DateWritten = DateTime.Now;
+                review.AuthorID = User.Identity.GetUserId();
                 db.Reviews.Add(review);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            
+            ViewBag.ProductID = new SelectList(db.Products, "ID", "Name", review.ProductID);
             return View(review);
         }
 
@@ -71,50 +76,28 @@ namespace SiegeNut.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ProductID = new SelectList(db.Products, "ID", "Name", review.ProductID);
             return View(review);
         }
 
         // POST: Reviews/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection form)
-        {
-            var model = db.Reviews.Find(id);
-
-            //make sure that the model exists in our database
-            if (model == null)
-            {
-                return new HttpNotFoundResult();
-            }
-            if (TryUpdateModel(model, new string[] { "Product", "Rating", "Title", "MainText" }))
-            {
-                db.SaveChanges();
-                return RedirectToAction("Index"); //or wherever you want to go
-            }
-            else  //TryUpdateModel returns false on a validation error
-            {
-                //return to the view and give the user a chance to fix the validation error(s)
-                return View("Edit", model);
-            }
-
-
-        }
-        /*
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Stars,Title,DateWritten,MainText")] Review review)
+        public ActionResult Edit([Bind(Include = "ID,ProductID,Rating,Title,DateWritten,MainText,AuthorID")] Review review)
         {
             if (ModelState.IsValid)
             {
+                review.AuthorID = User.Identity.GetUserId();
                 db.Entry(review).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ProductID = new SelectList(db.Products, "ID", "Name", review.ProductID);
             return View(review);
         }
-        */
+
         // GET: Reviews/Delete/5
         public ActionResult Delete(int? id)
         {
