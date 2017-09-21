@@ -11,39 +11,29 @@
 </head>
 <body>
     @Html.Partial("_Navbar")
-    <div class="container">
+    <div class="container-fluid">
 
-        @if (IsSectionDefined("FloralHeader"))
+        @if (IsSectionDefined("HomeHeader"))
             {
-            <div class="gold-border">
-                <div class="floral-border">
-                    @RenderSection("FloralHeader", required: false)
-                </div>
+            <div class="header text-center">
+                @RenderSection("HomeHeader", required: false)
             </div>
         }
 
         else if (IsSectionDefined("Header"))
         {
-            <div class="gold-border">
-                <div class="content header-content">
-                    @RenderSection("Header", required: false)
-                </div>
+            <div class="content header-content">
+                @RenderSection("Header", required: false)
             </div>
         }
-        <div class="gold-border">
-            <div class="content body-content">
-                @RenderBody()
-            </div>
+        <div class="content body-content">
+            @RenderBody()
         </div>
-        <div class="gold-border">
-            <div class="content footer-content">
-                <footer>
-                    <p>&copy; @DateTime.Now.Year - SiegeNut</p>
-                </footer>
-            </div>
-        </div>
-    </div>
 
+    </div>
+    <div class="content footer-content">
+        <p>&copy; @DateTime.Now.Year - SiegeNut</p>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrapscripts")
     @RenderSection("scripts", required: false)

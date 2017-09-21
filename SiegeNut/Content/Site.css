@@ -1,28 +1,30 @@
 ﻿body {
-    padding-top: 60px;
+    padding-top: 50px;
 	font-family: 'Libre Baskerville', serif;
-	background-color: rgb(85,12,5);
+    background-color: lightgray;
+}
+.container-fluid {
+    min-height: 95vh;
 }
 .header-content {
+    background-color: rgba(255,255,255,0.7);
     text-align: center;
 }
 a, a:hover, a:focus {
     outline: 0;
 }
 .content {
-    border: 4px solid rgb(85,12,5);
     padding: 20px 50px;
-	background-color: #ffeca2;
 }
-.gold-border {
-    border: 5px solid goldenrod;
-	margin-bottom: 50px;
+.footer-content {
+    background-color: #F8F8F8;
+    padding-left: 50px;
 }
-footer {
-    padding: 10px 0px;
-}
-footer p {
+.footer-content p {
     margin: 0px;
+    font-size: 16px;
+}
+.body-content {
 }
 h1 {
     font-family: 'Kumar One';
@@ -37,57 +39,55 @@ h2, h3, h4, h5, h6,
 .navbar .navbar-collapse {
 	text-align: center;
 }
-.navbar-inverse {
-	background-color: #fff3c5;
-	border-bottom: none;
-}
 .navbar-brand {
     padding-top: 17px;
 }
-.navbar-inverse .navbar-brand {
+.navbar-default {
+    border-bottom: none;
+}
+.navbar-default .navbar-brand {
 	color: black;
 }
-.navbar-inverse .navbar-nav li a {
+.navbar-default .navbar-nav li a {
 	color: black;
     padding-bottom: 17px;
 }
-.navbar-inverse .navbar-nav {
+.navbar-default .navbar-nav {
 }
-.navbar-inverse .navbar-brand:hover,
-.navbar-inverse .navbar-nav > li > a:hover,
-.navbar-inverse .navbar-brand:focus,
-.navbar-inverse .navbar-nav > li > a:focus {
-    background-color: goldenrod;
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-nav > li > a:focus {
+    background-color: lightgray;
+    color: black;
 }
-.navbar-inverse .navbar-brand:active,
-.navbar-inverse .navbar-nav > li > a:active {
-    background-color: darkgoldenrod;
+.navbar-default .navbar-brand:active,
+.navbar-default .navbar-nav > li > a:active {
+    background-color: darkgray;
+}
+.front-page {
+    
+}
+.front-page.row {
+    height: 25vh;
 }
 .front-page .col-md-4 {
+    height: 100%;
+}
+.front-page .col-md-4 div {
+    border-radius: 20px;
     padding: 20px;
+    background-color: #F8F8F8;
+    height: 100%;
 }
 .front-page .col-md-4 h2 {
+    margin-top: 0px;
     padding: 5px 0px;
-	background-color: #ffefaf;
-	border: 3px solid #edc867;
+	background-color: lightgray;
+	border-radius: 20px;
 }
-.floral-border {
-    background-image: url('../images/red paisley pattern.jpg');
-    padding: 60px;
-}
-.container .jumbotron {
-    border-radius: 0px;
-}
-.floral-border .jumbotron {
-	text-align: center;
-	border: 5px solid #edc867;
-    border-radius: 0px;
-    margin: 0px;
-    background-color: #ffefaf;
-}
-.floral-border .jumbotron h1 {
-    font-size: 80px;
-    margin-bottom: 0px;
+.front-page .col-md-4 p:last-child {
+    padding: 20px;
 }
 .navbar-brand {
 	font-family: 'Kumar One', cursive;
@@ -140,4 +140,24 @@ textarea {
     max-width: 1000px;
 }
 
-/*FOOTER*/
+.header {
+    height: 75vh;
+    background-color: transparent;
+    background-image: url('../Images/castle-header.jpg');
+    background-size: cover;
+}
+.header .jumbotron {
+    color: black;
+    background-color: transparent;
+}
+.header .jumbotron .col-sm-6 {
+    background-color: rgba(255,255,255,0.7);
+    padding: 40px;
+    border-radius: 40px;
+    margin-top: 12%;
+    word-wrap: break-word;
+}
+.header .jumbotron p {
+    float:none;
+    margin: auto;
+}
