@@ -25,7 +25,7 @@ a, a:hover, a:focus {
     font-size: 16px;
 }
 .body-content {
-    margin: 2%;
+    margin: 0px 8vh 8vh 8vh;
 }
 h1 {
     font-family: 'Kumar One';
@@ -156,7 +156,7 @@ textarea {
     background-color: rgba(255,255,255,0.7);
     padding: 40px;
     border-radius: 40px;
-    margin-top: 12%;
+    margin-top: 10vh;
     word-wrap: break-word;
 }
 .header .jumbotron p {
