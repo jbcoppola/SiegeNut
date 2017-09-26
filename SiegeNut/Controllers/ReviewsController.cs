@@ -16,9 +16,43 @@ namespace SiegeNut.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Reviews
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
+            ViewBag.ProductSortParm = String.IsNullOrEmpty(sortOrder) ? "product_desc" : "Product";
+            ViewBag.RatingSortParm = sortOrder == "Rating" ? "rating_desc" : "Rating";
+            ViewBag.AuthorSortParm = sortOrder == "Author" ? "author_desc" : "Author";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             var reviews = db.Reviews.Include(r => r.Author).Include(r => r.Product);
+            switch (sortOrder)
+            {
+                case "Product":
+                    reviews = reviews.OrderBy(r => r.Product.Name);
+                    break;
+                case "product_desc":
+                    reviews = reviews.OrderByDescending(r => r.Product.Name);
+                    break;
+                case "Rating":
+                    reviews = reviews.OrderBy(s => s.Rating);
+                    break;
+                case "rating_desc":
+                    reviews = reviews.OrderByDescending(s => s.Rating);
+                    break;
+                case "Author":
+                    reviews = reviews.OrderBy(s => s.Author.UserName);
+                    break;
+                case "author_desc":
+                    reviews = reviews.OrderByDescending(s => s.Author.UserName);
+                    break;
+                case "Date":
+                    reviews = reviews.OrderBy(s => s.DateWritten);
+                    break;
+                case "date_desc":
+                    reviews = reviews.OrderByDescending(s => s.DateWritten);
+                    break;
+                default:
+                    reviews = reviews.OrderBy(s => s.Product.Name);
+                    break;
+            }
             return View(reviews.ToList());
         }
 

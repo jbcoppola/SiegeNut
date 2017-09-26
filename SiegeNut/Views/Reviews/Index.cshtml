@@ -11,6 +11,20 @@
 
 @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-create" })
 
+<div class="row">
+    <div class="col-md-3">
+        @Html.ActionLink("Product", "Index", new { sortOrder = ViewBag.ProductSortParm })
+    </div>
+    <div class="col-md-3">
+        @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm })
+    </div>
+    <div class="col-md-3">
+        @Html.ActionLink("Author", "Index", new { sortOrder = ViewBag.AuthorSortParm })
+    </div>
+    <div class="col-md-3">
+        @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+    </div>
+</div>
 
 @foreach (var item in Model)
 {
