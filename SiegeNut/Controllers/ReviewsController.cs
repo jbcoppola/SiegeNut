@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using SiegeNut.Models;
 using Microsoft.AspNet.Identity;
+using PagedList;
 
 namespace SiegeNut.Controllers
 {
@@ -16,12 +17,26 @@ namespace SiegeNut.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Reviews
-        public ActionResult Index(string sortOrder, string searchString, string fieldSearch)
+        public ActionResult Index(string sortOrder, string currentField, string currentSearch, string searchString, string fieldSearch, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.ProductSortParm = String.IsNullOrEmpty(sortOrder) ? "product_desc" : "Product";
             ViewBag.RatingSortParm = sortOrder == "Rating" ? "rating_desc" : "Rating";
             ViewBag.AuthorSortParm = sortOrder == "Author" ? "author_desc" : "Author";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.CurrentField = fieldSearch;
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                fieldSearch = currentField;
+                searchString = currentSearch;
+            }
+            ViewBag.CurrentField = fieldSearch;
+            ViewBag.CurrentSearch = searchString;
+
             var reviews = db.Reviews.Include(r => r.Author).Include(r => r.Product);
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -73,7 +88,10 @@ namespace SiegeNut.Controllers
                     reviews = reviews.OrderBy(s => s.Product.Name);
                     break;
             }
-            return View(reviews.ToList());
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(reviews.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Reviews/Details/5

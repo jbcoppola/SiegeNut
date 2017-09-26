@@ -1,4 +1,6 @@
-﻿@model IEnumerable<SiegeNut.Models.Review>
+﻿@model PagedList.IPagedList<SiegeNut.Models.Review>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +14,7 @@
 @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-create" })
 
 <div class="row review">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Index", "Reviews", FormMethod.Get))
     {
         <div class="col-md-3">
             @Html.DropDownList("fieldSearch", new List<SelectListItem>
@@ -22,24 +24,26 @@
                         new SelectListItem() {Text = "Author", Value="Author"}
     }, new { @class = "form-control" })
         </div>
-        <div class="col-md-6">
-            @Html.TextBox("SearchString", null, new { @class = "form-control" })
+        <div class="col-md-8">
+            @Html.TextBox("SearchString", ViewBag.CurrentSearch as string, new { @class = "form-control" })
+        </div>
+        <div class="col-md-1">
             <input type="submit" class="btn btn-default" value="Search" />
         </div>
-    }
+                }
 </div>
 <div class="row review">
     <div class="col-md-3">
-        @Html.ActionLink("Product", "Index", new { sortOrder = ViewBag.ProductSortParm })
+        @Html.ActionLink("Product", "Index", new { sortOrder = ViewBag.ProductSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField})
     </div>
     <div class="col-md-3">
-        @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm })
+        @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })
     </div>
     <div class="col-md-3">
-        @Html.ActionLink("Author", "Index", new { sortOrder = ViewBag.AuthorSortParm })
+        @Html.ActionLink("Author", "Index", new { sortOrder = ViewBag.AuthorSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })
     </div>
     <div class="col-md-3">
-        @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+        @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })
     </div>
 </div>
 
@@ -50,7 +54,7 @@
             <strong>@Html.DisplayFor(modelItem => item.Product.Name)</strong>
         </div>
         <div class="col-md-12">
-            <strong>@Html.DisplayNameFor(model => model.Rating):</strong>
+            <strong>@Html.DisplayNameFor(model => item.Rating):</strong>
             @Html.DisplayFor(modelItem => item.Rating)
         </div>
         <div class="col-md-12">
@@ -70,3 +74,9 @@
         </div>
     </div>
 }
+<br />
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentSearch = ViewBag.CurrentSearch }))
