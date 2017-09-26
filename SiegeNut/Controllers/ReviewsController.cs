@@ -30,6 +30,7 @@ namespace SiegeNut.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Review review = db.Reviews.Find(id);
+            review.Product = db.Products.Find(review.ProductID);
             if (review == null)
             {
                 return HttpNotFound();
@@ -106,6 +107,7 @@ namespace SiegeNut.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Review review = db.Reviews.Find(id);
+            review.Product = db.Products.Find(review.ProductID);
             if (review == null)
             {
                 return HttpNotFound();
