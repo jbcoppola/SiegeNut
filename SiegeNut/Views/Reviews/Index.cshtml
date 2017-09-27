@@ -1,6 +1,5 @@
 ﻿@model PagedList.IPagedList<SiegeNut.Models.Review>
 @using PagedList.Mvc;
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
@@ -11,7 +10,7 @@
 }
 
 <div class="review">
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-create" })
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
 
     <div class="row search-row">
         @using (Html.BeginForm("Index", "Reviews", FormMethod.Get))
@@ -72,10 +71,9 @@
     }
     <br />
 
-    <div>
-        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-        @Html.PagedListPager(Model, page => Url.Action("Index",
+    <div class="page-box pull-right">
+        <p class="text-center">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</p>
+            @Html.PagedListPager(Model, page => Url.Action("Index",
     new { page, sortOrder = ViewBag.CurrentSort, currentSearch = ViewBag.CurrentSearch }))
     </div>
 </div>

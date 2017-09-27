@@ -98,10 +98,10 @@ h2, h3, h4, h5, h6,
 textarea.form-control {
     height: 300px;
 }
-.review .col-md-12 {
+.main-review .col-md-12 {
     margin: 15px 0px;
 }
-.review .col-md-12:last-of-type {
+.main-review .col-md-12:last-of-type {
     margin-top: 30px;
 }
 .btn {
@@ -110,23 +110,29 @@ textarea.form-control {
     color: gray;
     font-family: 'Playfair Display SC', serif;
 }
+.btn:focus {
+    outline: none;
+}
 .btn:hover {
     background-color: lightgray;
     color: darkslategray;
 }
-.review > div {
+.btn:active {
+    box-shadow: none;
+    background-color: darkgray;
+    color: black;
+    border-color: darkgray;
+}
+.main-review {
     padding: 20px;
     margin: 0px 3% 3% 3%;
 }
-.review > .row,
+.main-review,
 .btn-create{
     border-radius: 6px;
     border: 1px solid lightgray;
 }
 .btn-create {
-    color: darkslategray;
-    padding: 20px;
-    font-size: 16px;
     margin-bottom: 0px;
     margin-left: 3%;
 }
@@ -182,4 +188,39 @@ textarea {
 .header .jumbotron p {
     float:none;
     margin: auto;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    background-color: darkgray;
+    border-color: darkgray;
+}
+.pagination > li > a,
+.pagination > li > span {
+  padding: 10px 16px;
+  font-size: 18px;
+  color: gray;
+}
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.page-box {
+    margin: 0px 3%;
+    font-size: 16px;
+}
+.page-box p {
+    margin: 0px;
 }
