@@ -10,73 +10,72 @@
     <h1>Index</h1>
 }
 
+<div class="review">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-create" })
 
-@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-create" })
-
-<div class="row review">
-    @using (Html.BeginForm("Index", "Reviews", FormMethod.Get))
+    <div class="row search-row">
+        @using (Html.BeginForm("Index", "Reviews", FormMethod.Get))
+        {
+            <div class="col-lg-6 hidden-sm hidden-xs">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-btn">
+                        @Html.DropDownList("fieldSearch", new List<SelectListItem>
     {
-        <div class="col-md-3">
-            @Html.DropDownList("fieldSearch", new List<SelectListItem>
-    {
+                        new SelectListItem() {Text = "Search By", Value="", Selected=true},
                         new SelectListItem() {Text = "Product", Value="Product"},
                         new SelectListItem() {Text = "Rating", Value="Rating"},
                         new SelectListItem() {Text = "Author", Value="Author"}
-    }, new { @class = "form-control" })
+    }, new { @class = "btn" })
+                    </span>
+                    @Html.TextBox("SearchString", ViewBag.CurrentSearch as string, new { @class = "form-control" })
+                    <span class="input-group-btn">
+                        <input type="submit" class="btn btn-default btn-lg" value="Search" />
+                    </span>
+                </div>
+            </div>
+        }
+        <div class="col-lg-6">
+            <div class="btn-group btn-group-lg pull-right">
+                @Html.ActionLink("Product", "Index", new { sortOrder = ViewBag.ProductSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Author", "Index", new { sortOrder = ViewBag.AuthorSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField }, new { @class = "btn btn-default" })
+            </div>
         </div>
-        <div class="col-md-8">
-            @Html.TextBox("SearchString", ViewBag.CurrentSearch as string, new { @class = "form-control" })
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="row main-review">
+            <div class="col-md-12">
+                <strong>@Html.DisplayFor(modelItem => item.Product.Name)</strong>
+            </div>
+            <div class="col-md-12">
+                <strong>@Html.DisplayNameFor(model => item.Rating):</strong>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </div>
+            <div class="col-md-12">
+                <strong>@Html.DisplayFor(modelItem => item.Title)</strong>
+            </div>
+            <div class="col-md-12">
+                <strong>@Html.DisplayFor(modelItem => item.Author.UserName)</strong> on
+                @item.DateWritten.ToString("MMM dd, yyyy")
+            </div>
+            <div class="col-md-12">
+                @Html.DisplayFor(modelItem => item.MainText)
+            </div>
+            <div class="col-md-12">
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
+                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn" })
+            </div>
         </div>
-        <div class="col-md-1">
-            <input type="submit" class="btn btn-default" value="Search" />
-        </div>
-                }
-</div>
-<div class="row review">
-    <div class="col-md-3">
-        @Html.ActionLink("Product", "Index", new { sortOrder = ViewBag.ProductSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField})
-    </div>
-    <div class="col-md-3">
-        @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })
-    </div>
-    <div class="col-md-3">
-        @Html.ActionLink("Author", "Index", new { sortOrder = ViewBag.AuthorSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })
-    </div>
-    <div class="col-md-3">
-        @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })
-    </div>
-</div>
+    }
+    <br />
 
-@foreach (var item in Model)
-{
-    <div class="row review">
-        <div class="col-md-12">
-            <strong>@Html.DisplayFor(modelItem => item.Product.Name)</strong>
-        </div>
-        <div class="col-md-12">
-            <strong>@Html.DisplayNameFor(model => item.Rating):</strong>
-            @Html.DisplayFor(modelItem => item.Rating)
-        </div>
-        <div class="col-md-12">
-            <strong>@Html.DisplayFor(modelItem => item.Title)</strong>
-        </div>
-        <div class="col-md-12">
-            <strong>@Html.DisplayFor(modelItem => item.Author.UserName)</strong> on
-            @item.DateWritten.ToString("MMM dd, yyyy")
-        </div>
-        <div class="col-md-12">
-            @Html.DisplayFor(modelItem => item.MainText)
-        </div>
-        <div class="col-md-12">
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
-            @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn" })
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn" })
-        </div>
-    </div>
-}
-<br />
+    <div>
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-@Html.PagedListPager(Model, page => Url.Action("Index",
+        @Html.PagedListPager(Model, page => Url.Action("Index",
     new { page, sortOrder = ViewBag.CurrentSort, currentSearch = ViewBag.CurrentSearch }))
+    </div>
+</div>

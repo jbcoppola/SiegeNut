@@ -93,10 +93,7 @@ h2, h3, h4, h5, h6,
 	font-family: 'Kumar One', cursive;
 }
 .review {
-    padding: 30px;
-}
-.review .col-md-12:first-child {
-    font-size: 20px;
+    margin: 30px;
 }
 textarea.form-control {
     height: 300px;
@@ -106,11 +103,6 @@ textarea.form-control {
 }
 .review .col-md-12:last-of-type {
     margin-top: 30px;
-}
-.reviewSelect {
-}
-.reviewSearch {
-    width: 80%;
 }
 .btn {
     border: 1px solid lightgray;
@@ -122,17 +114,40 @@ textarea.form-control {
     background-color: lightgray;
     color: darkslategray;
 }
-.review,
-.btn-create {
-    margin: 3%;
-    border-radius: 10px;
-    border: 2px solid lightgray;
+.review > div {
+    padding: 20px;
+    margin: 0px 3% 3% 3%;
+}
+.review > .row,
+.btn-create{
+    border-radius: 6px;
+    border: 1px solid lightgray;
 }
 .btn-create {
     color: darkslategray;
     padding: 20px;
     font-size: 16px;
     margin-bottom: 0px;
+    margin-left: 3%;
+}
+.review .search-row {
+    border: none;
+    padding: 5px 0px;
+    margin: 0px 3%;
+}
+.review .search-row .col-lg-6 {
+    padding: 5px 0px;
+}
+.input-group-lg > .input-group-btn > select.btn {
+    padding: 0px 15px;
+    border-right: none;
+}
+.input-group-btn:last-child > .btn {
+    border-left: none;
+}
+.review .search-row select.btn:focus,
+.review .search-row select.btn:hover {
+    outline: none;
 }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
