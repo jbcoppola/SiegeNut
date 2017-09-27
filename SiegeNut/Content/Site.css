@@ -132,6 +132,9 @@ textarea.form-control {
     border-radius: 6px;
     border: 1px solid lightgray;
 }
+.main-review div:first-child {
+    font-size: 30px;
+}
 .btn-create {
     margin-bottom: 0px;
     margin-left: 3%;
