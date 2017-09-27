@@ -23,7 +23,7 @@
             <strong>@Html.DisplayFor(model => model.Title)</strong>
         </div>
         <div class="col-md-12">
-            <strong>@Html.DisplayFor(model => model.Author)</strong> on
+            <strong>@Html.DisplayFor(model => model.Author.UserName)</strong> on
             @Model.DateWritten.ToString("MMM dd, yyyy")
         </div>
         <div class="col-md-12">

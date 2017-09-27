@@ -103,6 +103,7 @@ namespace SiegeNut.Controllers
             }
             Review review = db.Reviews.Find(id);
             review.Product = db.Products.Find(review.ProductID);
+            review.Author = db.Users.Find(review.AuthorID);
             if (review == null)
             {
                 return HttpNotFound();
@@ -180,6 +181,7 @@ namespace SiegeNut.Controllers
             }
             Review review = db.Reviews.Find(id);
             review.Product = db.Products.Find(review.ProductID);
+            review.Author = db.Users.Find(review.AuthorID);
             if (review == null)
             {
                 return HttpNotFound();
