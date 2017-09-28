@@ -74,30 +74,16 @@ h2, h3, h4, h5, h6,
     background-color: lightgray;
     width: 100%;
 }
+.front-page .product div {
+    padding: 20px;
+}
 .front-page .product .btn:hover {
     background-color: darkgray;
 }
 .front-page .product .btn:active {
     background-color: gray;
 }
-.front-page.row .col-md-4 {
-    text-overflow:ellipsis;
-}
-.front-page .col-md-4 {
-    height: 100%;
-}
-.front-page .col-md-4 div {
-    border-radius: 20px;
-    padding: 20px;
-    height: 100%;
-}
-.front-page .col-md-4 h2 {
-    margin-top: 0px;
-    padding: 5px 0px;
-	background-color: lightgray;
-	border-radius: 20px;
-}
-.front-page .col-md-4 p:last-child {
+.front-page .product p:last-child {
     padding: 20px;
 }
 .navbar-brand {

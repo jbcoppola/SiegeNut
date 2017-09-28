@@ -17,10 +17,11 @@
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
-
+        
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Reviews for this product", "Index", "Reviews", new { searchString = Model.Name, searchField = "Product" }, new { @class = "btn btn-lg" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
     @Html.ActionLink("Back to List", "Index")
 </p>
