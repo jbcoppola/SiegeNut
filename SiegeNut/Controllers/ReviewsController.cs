@@ -21,6 +21,7 @@ namespace SiegeNut.Controllers
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.ProductSortParm = String.IsNullOrEmpty(sortOrder) ? "product_desc" : "Product";
+            ViewBag.ProductSortParm = sortOrder == "Product" ? "product_desc" : "Product";
             ViewBag.RatingSortParm = sortOrder == "Rating" ? "rating_desc" : "Rating";
             ViewBag.AuthorSortParm = sortOrder == "Author" ? "author_desc" : "Author";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
