@@ -17,31 +17,31 @@ namespace SiegeNut.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Reviews
-        public ActionResult Index(string sortOrder, string currentField, string currentSearch, string searchString, string fieldSearch, int? page)
+        public ActionResult Index(string sortOrder, string currentField, string currentSearch, string searchString, string searchField, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.ProductSortParm = String.IsNullOrEmpty(sortOrder) ? "product_desc" : "Product";
             ViewBag.RatingSortParm = sortOrder == "Rating" ? "rating_desc" : "Rating";
             ViewBag.AuthorSortParm = sortOrder == "Author" ? "author_desc" : "Author";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            ViewBag.CurrentField = fieldSearch;
+            ViewBag.CurrentField = searchField;
             if (searchString != null)
             {
                 page = 1;
             }
             else
             {
-                fieldSearch = currentField;
+                searchField = currentField;
                 searchString = currentSearch;
             }
-            ViewBag.CurrentField = fieldSearch;
+            ViewBag.CurrentField = searchField;
             ViewBag.CurrentSearch = searchString;
 
             var reviews = db.Reviews.Include(r => r.Author).Include(r => r.Product);
             if (!String.IsNullOrEmpty(searchString))
             {
                 
-                switch (fieldSearch)
+                switch (searchField)
                 {
                     case "Product":
                         reviews = reviews.Where(r => r.Product.Name.Contains(searchString)

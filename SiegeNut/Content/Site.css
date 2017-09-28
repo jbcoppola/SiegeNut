@@ -25,7 +25,8 @@ a, a:hover, a:focus {
     font-size: 16px;
 }
 .body-content {
-    margin: 0px 8vh 8vh 8vh;
+    margin: 0px 3vh 3vh 3vh;
+    min-height: 25vh;
 }
 h1 {
     font-family: 'Kumar One';
@@ -66,11 +67,21 @@ h2, h3, h4, h5, h6,
 .navbar-default .navbar-nav > li > a:active {
     background-color: darkgray;
 }
-.front-page {
-    
+.front-page .product .btn {
+    color: black;
+    font-size: 24px;
+    border-radius: 30px;
+    background-color: lightgray;
+    width: 100%;
 }
-.front-page.row {
-    height: 25vh;
+.front-page .product .btn:hover {
+    background-color: darkgray;
+}
+.front-page .product .btn:active {
+    background-color: gray;
+}
+.front-page.row .col-md-4 {
+    text-overflow:ellipsis;
 }
 .front-page .col-md-4 {
     height: 100%;
@@ -226,4 +237,11 @@ textarea {
 }
 .page-box p {
     margin: 0px;
+}
+
+@media (max-width: 978px) {
+    .body-content {
+        padding: 10px;
+    margin: 0px 0px 3vh 0px;
+}
 }

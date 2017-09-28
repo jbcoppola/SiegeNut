@@ -18,9 +18,9 @@
 <div class="front-page row text-center">
     @foreach (var product in Model)
     {
-    <div class="col-md-4">
+    <div class="product col-md-4">
         <div>
-            <h2>@product.Name</h2>
+            @Html.ActionLink(product.Name,"Index","Reviews",new { searchString = product.Name, searchField = "Product"}, new { @class="btn btn-lg"})
             <p>
                 @product.Description
             </p>
