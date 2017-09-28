@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<SiegeNut.Models.Product>
+
+@{
     ViewBag.Title = "Home Page";
 }
 @section HomeHeader {
@@ -14,24 +16,16 @@
 }
 
 <div class="front-page row text-center">
+    @foreach (var product in Model)
+    {
     <div class="col-md-4">
         <div>
-            <h2>Trebuchets</h2>
+            <h2>@product.Name</h2>
             <p>
-                Nam nisi nisl, tempor aliquam odio pulvinar, vehicula lobortis nisi. Morbi pharetra fermentum enim, a volutpat velit iaculis id. Nulla facilisi. Pellentesque vitae varius velit.
+                @product.Description
             </p>
         </div>
     </div>
-    <div class="col-md-4">
-        <div>
-            <h2>Battering Rams</h2>
-            <p>Cras porta tellus lectus, sit amet finibus massa venenatis sed. Etiam scelerisque, elit eget venenatis vestibulum, leo lectus porttitor ante, non ultrices eros turpis eu arcu. Integer sit amet pretium ligula. </p>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div>
-            <h2>Porcullises</h2>
-            <p>Donec ut magna eros. Praesent blandit aliquet massa porta blandit. Ut eu risus dignissim, facilisis metus id, placerat arcu. Proin facilisis nibh sed sapien ornare accumsan. </p>
-        </div>
-    </div>
+    if (product.ID >= 3) { break; }
+    }
 </div>
