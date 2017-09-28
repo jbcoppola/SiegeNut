@@ -2,8 +2,9 @@
 @{
     ViewBag.Title = "Manage";
 }
-
-<h2>@ViewBag.Title.</h2>
+@section header {
+<h1>@ViewBag.Title</h1>
+}
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
@@ -85,3 +86,4 @@
         </dd>
     </dl>
 </div>
+@Html.ActionLink("Your Reviews", "Index", "Reviews", new { searchString = ViewBag.UserName, searchField = "Author"} ,new { @class = "btn"})

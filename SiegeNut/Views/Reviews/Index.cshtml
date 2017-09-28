@@ -69,9 +69,7 @@
             </div>
         </div>
     }
-    <br />
-
-    <div class="page-box pull-right">
+    <div class="page-box text-right">
         <p class="text-center">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</p>
             @Html.PagedListPager(Model, page => Url.Action("Index",
     new { page, sortOrder = ViewBag.CurrentSort, currentSearch = ViewBag.CurrentSearch }))

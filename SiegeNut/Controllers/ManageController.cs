@@ -64,6 +64,7 @@ namespace SiegeNut.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            ViewBag.UserName = User.Identity.Name;
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
