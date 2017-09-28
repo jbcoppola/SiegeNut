@@ -235,6 +235,10 @@
     <Compile Include="Migrations\201709201948122_changed id generation.Designer.cs">
       <DependentUpon>201709201948122_changed id generation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709281910232_Product-Description.cs" />
+    <Compile Include="Migrations\201709281910232_Product-Description.Designer.cs">
+      <DependentUpon>201709281910232_Product-Description.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -348,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709201948122_changed id generation.resx">
       <DependentUpon>201709201948122_changed id generation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709281910232_Product-Description.resx">
+      <DependentUpon>201709281910232_Product-Description.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
