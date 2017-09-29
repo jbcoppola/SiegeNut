@@ -191,7 +191,11 @@ namespace SiegeNut.Controllers
             {
                 return HttpNotFound();
             }
-            return View(review);
+            if (User.Identity.GetUserId() == review.AuthorID)
+            {
+                return View(review);
+            }
+            return RedirectToAction("Index");
         }
 
         // POST: Reviews/Delete/5
