@@ -233,6 +233,7 @@ textarea {
     border: 1px solid lightgray;
     padding: 40px 70px;
     margin: 30px 0px;
+    border-radius: 6px;
 }
 .about div h2 {
     margin: 0px 0px 30px 0px;
