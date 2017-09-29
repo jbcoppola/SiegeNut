@@ -28,8 +28,11 @@
             @Html.DisplayFor(model => model.MainText)
         </div>
         <div class="col-md-12">
-            @Html.ActionLink("Delete", "Delete", new { id = Model.ID }, new { @class = "btn" })
-            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn" })
+            @if (ViewBag.CurrentUser == Model.AuthorID)
+            {
+                @Html.ActionLink("Delete", "Delete", new { id = Model.ID }, new { @class = "btn" })
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn" })
+            }
             @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
         </div>
     </div>

@@ -26,6 +26,7 @@ namespace SiegeNut.Controllers
             ViewBag.AuthorSortParm = sortOrder == "Author" ? "author_desc" : "Author";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.CurrentField = searchField;
+            ViewBag.CurrentUser = User.Identity.GetUserId();
             if (searchString != null)
             {
                 page = 1;
@@ -105,6 +106,7 @@ namespace SiegeNut.Controllers
             Review review = db.Reviews.Find(id);
             review.Product = db.Products.Find(review.ProductID);
             review.Author = db.Users.Find(review.AuthorID);
+            ViewBag.CurrentUser = User.Identity.GetUserId();
             if (review == null)
             {
                 return HttpNotFound();
