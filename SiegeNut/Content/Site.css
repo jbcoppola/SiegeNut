@@ -89,16 +89,16 @@ h2, h3, h4, h5, h6,
 .navbar-brand {
 	font-family: 'Kumar One', cursive;
 }
-.review {
+.list {
     margin: 30px;
 }
 textarea.form-control {
     height: 300px;
 }
-.main-review .col-md-12 {
+.item .col-md-12 {
     margin: 15px 0px;
 }
-.main-review .col-md-12:last-of-type {
+.item .col-md-12:last-of-type {
     margin-top: 30px;
 }
 .btn {
@@ -120,28 +120,28 @@ textarea.form-control {
     color: black;
     border-color: darkgray;
 }
-.main-review {
+.item {
     padding: 20px;
     margin: 0px 3% 3% 3%;
 }
-.main-review,
+.item,
 .btn-create{
     border-radius: 6px;
     border: 1px solid lightgray;
 }
-.main-review div:first-child {
+.item div:first-child {
     font-size: 30px;
 }
 .btn-create {
     margin-bottom: 0px;
     margin-left: 3%;
 }
-.review .search-row {
+.list .search-row {
     border: none;
     padding: 5px 0px;
     margin: 0px 3%;
 }
-.review .search-row .col-lg-6 {
+.list .search-row .col-lg-6 {
     padding: 5px 0px;
 }
 .input-group-lg > .input-group-btn > select.btn {
@@ -151,8 +151,8 @@ textarea.form-control {
 .input-group-btn:last-child > .btn {
     border-left: none;
 }
-.review .search-row select.btn:focus,
-.review .search-row select.btn:hover {
+.list .search-row select.btn:focus,
+.list .search-row select.btn:hover {
     outline: none;
 }
 /* Override the default bootstrap behavior where horizontal description lists 

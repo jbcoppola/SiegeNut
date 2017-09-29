@@ -9,7 +9,7 @@
     <h1>Index</h1>
 }
 
-<div class="review">
+<div class="list">
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
 
     <div class="row search-row">
@@ -44,7 +44,7 @@
     </div>
     @foreach (var item in Model)
     {
-        <div class="row main-review">
+        <div class="row item">
             <div class="col-md-12">
                 <strong>@Html.DisplayFor(modelItem => item.Product.Name)</strong>
             </div>
