@@ -20,8 +20,7 @@ namespace SiegeNut.Controllers
         public ActionResult Index(string sortOrder, string currentField, string currentSearch, string searchString, string searchField, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
-            ViewBag.ProductSortParm = String.IsNullOrEmpty(sortOrder) ? "product_desc" : "Product";
-            ViewBag.ProductSortParm = sortOrder == "product_desc" ? "Product" : "product_desc";
+            ViewBag.ProductSortParm = String.IsNullOrEmpty(sortOrder) || sortOrder == "Product" ? "product_desc" : "Product";
             ViewBag.RatingSortParm = sortOrder == "Rating" ? "rating_desc" : "Rating";
             ViewBag.AuthorSortParm = sortOrder == "Author" ? "author_desc" : "Author";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
