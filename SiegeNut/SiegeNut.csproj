@@ -256,8 +256,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Battering ram.JPG" />
     <Content Include="Images\castle-header.jpg" />
-    <Content Include="Images\red paisley pattern.jpg" />
+    <Content Include="Images\Portcullis.jpg" />
+    <Content Include="Images\Trebuchet.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
