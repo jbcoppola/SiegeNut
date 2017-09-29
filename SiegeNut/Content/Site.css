@@ -136,6 +136,11 @@ textarea.form-control {
     margin-bottom: 0px;
     margin-left: 3%;
 }
+.item .img-rounded {
+    margin: 50px 0px;
+    border: 7px solid lightgray;
+    border-radius: 2%;
+}
 .list .search-row {
     border: none;
     padding: 5px 0px;
