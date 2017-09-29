@@ -6,10 +6,10 @@
 }
 
 @section Header {
-    <h1>Index</h1>
+    <h1>Reviews</h1>
 }
 
-<div class="list">
+@section List {
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
 
     <div class="row search-row">
@@ -74,4 +74,4 @@
             @Html.PagedListPager(Model, page => Url.Action("Index",
     new { page, sortOrder = ViewBag.CurrentSort, currentSearch = ViewBag.CurrentSearch }))
     </div>
-</div>
+}

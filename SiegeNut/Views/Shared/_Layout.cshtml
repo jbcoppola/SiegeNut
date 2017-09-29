@@ -28,7 +28,17 @@
             </div>
         }
         <div class="content body-content">
-            @RenderBody()
+            @if (IsSectionDefined("List"))
+            {
+                <div class="list">
+                    @RenderSection("List", required: false)
+                </div>
+            }
+
+            else
+            {
+               @RenderBody()
+            }
         </div>
 
     </div>

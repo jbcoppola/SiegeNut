@@ -4,17 +4,17 @@
     ViewBag.Title = "Index";
 }
 @section header {
-<h1>Index</h1>
+<h1>Products</h1>
 }
 
-<div class="list">
+@section List {
     <p>
         @Html.ActionLink("Create New", "Create",null, new { @class="btn btn-lg btn-create"})
     </p>
 
     @foreach (var item in Model)
     {
-        <div class="item">
+        <div class="row item">
             <div class="col-md-12">
                 @Html.DisplayFor(modelItem => item.Name)
             </div>
@@ -28,4 +28,4 @@
             </div>
         </div>
     }
-</div>
+}
