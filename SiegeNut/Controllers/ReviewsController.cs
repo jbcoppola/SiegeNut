@@ -151,8 +151,12 @@ namespace SiegeNut.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProductID = new SelectList(db.Products, "ID", "Name", review.ProductID);
-            return View(review);
+            if (User.Identity.GetUserId() == review.AuthorID)
+            {
+                ViewBag.ProductID = new SelectList(db.Products, "ID", "Name", review.ProductID);
+                return View(review);
+            }
+            return RedirectToAction("Index");
         }
 
         // POST: Reviews/Edit/5
