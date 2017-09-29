@@ -66,15 +66,15 @@
                 @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn" })
                 @if (ViewBag.CurrentUser == item.AuthorID)
                 {
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn" })
                 }
             </div>
         </div>
     }
     <div class="page-box text-right">
         <p class="text-center">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</p>
-            @Html.PagedListPager(Model, page => Url.Action("Index",
+        @Html.PagedListPager(Model, page => Url.Action("Index",
     new { page, sortOrder = ViewBag.CurrentSort, currentSearch = ViewBag.CurrentSearch }))
     </div>
 }
