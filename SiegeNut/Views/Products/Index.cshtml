@@ -4,14 +4,16 @@
     ViewBag.Title = "Index";
 }
 @section header {
-<h1>Products</h1>
+    <h1>Products</h1>
 }
 
 @section List {
+@if (ViewBag.isAdmin)
+{
     <p>
-        @Html.ActionLink("Create New", "Create",null, new { @class="btn btn-lg btn-create"})
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
     </p>
-
+}
     @foreach (var item in Model)
     {
         <div class="row item">
@@ -23,8 +25,11 @@
             </div>
             <div class="col-md-12">
                 @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn" })
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn"})
+                @if (ViewBag.isAdmin)
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn" })
+                }
             </div>
         </div>
     }

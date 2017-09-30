@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using SiegeNut.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SiegeNut.Controllers
 {
@@ -19,7 +20,8 @@ namespace SiegeNut.Controllers
         private bool IsAdmin() {
             if (User.Identity.IsAuthenticated)
             {
-                var user = UserManager.FindById(User.Identity.GetUserId());
+                var id = User.Identity.GetUserId();
+                var user = db.Users.First(x => x.Id == id);
                 return user.AccountType == ApplicationUser.AdminAccountType;
             }
             return false;
