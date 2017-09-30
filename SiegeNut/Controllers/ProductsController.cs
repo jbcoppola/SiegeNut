@@ -7,16 +7,28 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SiegeNut.Models;
+using Microsoft.AspNet.Identity;
 
 namespace SiegeNut.Controllers
 {
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private UserManager<ApplicationUser> UserManager { get; set; }
+
+        private bool IsAdmin() {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = UserManager.FindById(User.Identity.GetUserId());
+                return user.AccountType == ApplicationUser.AdminAccountType;
+            }
+            return false;
+        }
 
         // GET: Products
         public ActionResult Index()
         {
+            ViewBag.isAdmin = IsAdmin();
             return View(db.Products.ToList());
         }
 
@@ -28,6 +40,7 @@ namespace SiegeNut.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Product product = db.Products.Find(id);
+            ViewBag.isAdmin = IsAdmin();
             if (product == null)
             {
                 return HttpNotFound();
@@ -38,7 +51,10 @@ namespace SiegeNut.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
-            return View();
+            if (IsAdmin()) {
+                return View();
+            }
+            return RedirectToAction("Index");
         }
 
         // POST: Products/Create
@@ -54,8 +70,11 @@ namespace SiegeNut.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            return View(product);
+            if (IsAdmin())
+            {
+                return View();
+            }
+            return RedirectToAction("Index");
         }
 
         // GET: Products/Edit/5
@@ -70,7 +89,11 @@ namespace SiegeNut.Controllers
             {
                 return HttpNotFound();
             }
-            return View(product);
+            if (IsAdmin())
+            {
+                return View(product);
+            }
+            return RedirectToAction("Index");
         }
 
         // POST: Products/Edit/5
@@ -101,7 +124,11 @@ namespace SiegeNut.Controllers
             {
                 return HttpNotFound();
             }
-            return View(product);
+           if (IsAdmin())
+            {
+                return View(product);
+            }
+            return RedirectToAction("Index");
         }
 
         // POST: Products/Delete/5

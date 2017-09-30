@@ -18,7 +18,11 @@ namespace SiegeNut.Models
             // Add custom user claims here
             return userIdentity;
         }
-        public virtual ICollection<Review> Reviews {get;set;}
+        public virtual ICollection<Review> Reviews { get; set; }
+        public byte AccountType { get; set; }
+
+        public static readonly byte AdminAccountType = 0;
+        public static readonly byte UserAccountType = 1;
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

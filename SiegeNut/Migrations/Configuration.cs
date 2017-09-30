@@ -35,42 +35,50 @@ namespace SiegeNut.Migrations
                 new ApplicationUser
                 {
                     UserName = "king henry",
-                    PasswordHash = password
+                    PasswordHash = password,
+                    AccountType = ApplicationUser.UserAccountType
                 },
                 new ApplicationUser
                 {
                     UserName = "MilitiaManXX",
-                    PasswordHash = password
+                    PasswordHash = password,
+                    AccountType = ApplicationUser.UserAccountType
                 },
                 new ApplicationUser
                 {
                     UserName = "LootnPlunder",
-                    PasswordHash = password
+                    PasswordHash = password,
+                    AccountType = ApplicationUser.UserAccountType
                 },
                 new ApplicationUser
                 {
                     UserName = "happysburg",
-                    PasswordHash = password
+                    PasswordHash = password,
+                    AccountType = ApplicationUser.UserAccountType
                 },
                 new ApplicationUser
                 {
                     UserName = "TowerSitter",
-                    PasswordHash = password
+                    PasswordHash = password,
+                    AccountType = ApplicationUser.UserAccountType
                 },
                 new ApplicationUser
                 {
                     UserName = "cold_steel_hot_oil",
-                    PasswordHash = password
+                    PasswordHash = password,
+                    AccountType = ApplicationUser.UserAccountType
                 },
                 new ApplicationUser
                 {
                     UserName = "potshot",
-                    PasswordHash = password
+                    PasswordHash = password,
+                    AccountType = ApplicationUser.UserAccountType
                 },
                 new ApplicationUser
                 {
                     UserName = "goldcrown50",
-                    PasswordHash = password
+                    PasswordHash = password,
+                    AccountType = ApplicationUser.UserAccountType
                 });
 
             int trebuchet = 1;
