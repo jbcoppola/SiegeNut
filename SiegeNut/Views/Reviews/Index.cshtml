@@ -10,8 +10,10 @@
 }
 
 @section List {
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
-
+    @if (ViewBag.isAuthenticated)
+    {
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
+    }
     <div class="row search-row">
         @using (Html.BeginForm("Index", "Reviews", FormMethod.Get))
         {
@@ -66,7 +68,7 @@
                 @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn" })
                 @if (ViewBag.CurrentUser == item.AuthorID || ViewBag.isAdmin)
                 {
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
                 }
                 @if (ViewBag.CurrentUser == item.AuthorID || ViewBag.isAdmin)
                 {

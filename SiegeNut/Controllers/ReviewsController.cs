@@ -49,6 +49,7 @@ namespace SiegeNut.Controllers
             ViewBag.CurrentField = searchField;
             ViewBag.CurrentSearch = searchString;
             ViewBag.isAdmin = IsAdmin();
+            ViewBag.isAuthenticated = User.Identity.IsAuthenticated;
 
             var reviews = db.Reviews.Include(r => r.Author).Include(r => r.Product);
             if (!String.IsNullOrEmpty(searchString))
