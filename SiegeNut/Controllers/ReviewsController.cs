@@ -16,6 +16,17 @@ namespace SiegeNut.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        private bool IsAdmin()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var id = User.Identity.GetUserId();
+                var user = db.Users.First(x => x.Id == id);
+                return user.AccountType == ApplicationUser.AdminAccountType;
+            }
+            return false;
+        }
+
         // GET: Reviews
         public ActionResult Index(string sortOrder, string currentField, string currentSearch, string searchString, string searchField, int? page)
         {
@@ -37,6 +48,7 @@ namespace SiegeNut.Controllers
             }
             ViewBag.CurrentField = searchField;
             ViewBag.CurrentSearch = searchString;
+            ViewBag.isAdmin = IsAdmin();
 
             var reviews = db.Reviews.Include(r => r.Author).Include(r => r.Product);
             if (!String.IsNullOrEmpty(searchString))
@@ -106,6 +118,7 @@ namespace SiegeNut.Controllers
             review.Product = db.Products.Find(review.ProductID);
             review.Author = db.Users.Find(review.AuthorID);
             ViewBag.CurrentUser = User.Identity.GetUserId();
+            ViewBag.isAdmin = IsAdmin();
             if (review == null)
             {
                 return HttpNotFound();
@@ -116,8 +129,12 @@ namespace SiegeNut.Controllers
         // GET: Reviews/Create
         public ActionResult Create()
         {
-            ViewBag.ProductID = new SelectList(db.Products, "ID", "Name");
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.ProductID = new SelectList(db.Products, "ID", "Name");
+                return View();
+            }
+            return RedirectToAction("Index");
         }
 
         // POST: Reviews/Create
@@ -152,7 +169,7 @@ namespace SiegeNut.Controllers
             {
                 return HttpNotFound();
             }
-            if (User.Identity.GetUserId() == review.AuthorID)
+            if (User.Identity.GetUserId() == review.AuthorID || IsAdmin())
             {
                 ViewBag.ProductID = new SelectList(db.Products, "ID", "Name", review.ProductID);
                 return View(review);
@@ -192,7 +209,7 @@ namespace SiegeNut.Controllers
             {
                 return HttpNotFound();
             }
-            if (User.Identity.GetUserId() == review.AuthorID)
+            if (User.Identity.GetUserId() == review.AuthorID || IsAdmin())
             {
                 return View(review);
             }

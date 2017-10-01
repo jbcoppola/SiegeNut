@@ -28,6 +28,9 @@
                 @if (ViewBag.isAdmin)
                 {
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
+                }
+                @if (ViewBag.isAdmin)
+                {
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn" })
                 }
             </div>
