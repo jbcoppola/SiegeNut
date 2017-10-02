@@ -267,7 +267,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\Battering ram.JPG" />
     <Content Include="Images\castle-header.jpg" />
+    <Content Include="Images\empty star.png" />
+    <Content Include="Images\half empty star.png" />
+    <Content Include="Images\half full star.png" />
+    <Content Include="Images\halfstar.png" />
     <Content Include="Images\Portcullis.jpg" />
+    <Content Include="Images\star.png" />
     <Content Include="Images\Trebuchet.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
