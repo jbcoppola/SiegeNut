@@ -1,0 +1,26 @@
+﻿@model SiegeNut.Models.Review
+
+<div class="col-md-12">
+    <strong>@Html.DisplayFor(model => model.Product.Name)</strong>
+</div>
+<div class="col-md-12">
+    @for (int i = 0; i < 10; i++)
+    {
+        if (i < Model.Rating)
+        {<span class="glyphicon glyphicon-star"></span>}
+        else
+        {<span class="glyphicon glyphicon-star-empty"></span>}
+    }
+</div>
+<div class="col-md-12">
+    <strong>@Html.DisplayFor(model => model.Title)</strong>
+</div>
+<div class="col-md-12">
+    <strong>@Html.DisplayFor(model => model.Author.UserName)</strong> on
+    @Model.DateWritten.ToString("MMM dd, yyyy")
+</div>
+<div class="col-md-12">
+    @Html.DisplayFor(model => model.MainText)
+</div>
+
+    

@@ -7,27 +7,11 @@
     <h1>Delete</h1>
 }
 @section List {
-<div class="text-center">
-    <p><h3>Are you sure you want to delete this?</h3></p>
-</div>
-<div class="row item">
-        <div class="col-md-12">
-            <strong>@Html.DisplayFor(model => model.Product.Name)</strong>
-        </div>
-        <div class="col-md-12">
-            <strong>@Html.DisplayNameFor(model => model.Rating):</strong>
-            @Html.DisplayFor(model => model.Rating)
-        </div>
-        <div class="col-md-12">
-            <strong>@Html.DisplayFor(model => model.Title)</strong>
-        </div>
-        <div class="col-md-12">
-            <strong>@Html.DisplayFor(model => model.Author.UserName)</strong> on
-            @Model.DateWritten.ToString("MMM dd, yyyy")
-        </div>
-        <div class="col-md-12">
-            @Html.DisplayFor(model => model.MainText)
-        </div>
+    <div class="text-center">
+        <p><h3>Are you sure you want to delete this?</h3></p>
+    </div>
+    <div class="row item">
+        @Html.Partial("_ReviewBody", Model)
         <div class="col-md-12">
             @using (Html.BeginForm())
             {
@@ -40,4 +24,4 @@
         </div>
     </div>
     @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
-    }
+}

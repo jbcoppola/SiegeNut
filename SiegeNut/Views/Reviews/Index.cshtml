@@ -47,23 +47,7 @@
     @foreach (var item in Model)
     {
         <div class="row item">
-            <div class="col-md-12">
-                <strong>@Html.DisplayFor(modelItem => item.Product.Name)</strong>
-            </div>
-            <div class="col-md-12">
-                <strong>@Html.DisplayNameFor(model => item.Rating):</strong>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </div>
-            <div class="col-md-12">
-                <strong>@Html.DisplayFor(modelItem => item.Title)</strong>
-            </div>
-            <div class="col-md-12">
-                <strong>@Html.DisplayFor(modelItem => item.Author.UserName)</strong> on
-                @item.DateWritten.ToString("MMM dd, yyyy")
-            </div>
-            <div class="col-md-12">
-                @Html.DisplayFor(modelItem => item.MainText)
-            </div>
+            @Html.Partial("_ReviewBody", item)
             <div class="col-md-12">
                 @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn" })
                 @if (ViewBag.CurrentUser == item.AuthorID || ViewBag.isAdmin)

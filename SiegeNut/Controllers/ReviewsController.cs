@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using SiegeNut.Models;
 using Microsoft.AspNet.Identity;
 using PagedList;
+using System.Text;
 
 namespace SiegeNut.Controllers
 {
@@ -50,11 +51,11 @@ namespace SiegeNut.Controllers
             ViewBag.CurrentSearch = searchString;
             ViewBag.isAdmin = IsAdmin();
             ViewBag.isAuthenticated = User.Identity.IsAuthenticated;
-
+            
             var reviews = db.Reviews.Include(r => r.Author).Include(r => r.Product);
             if (!String.IsNullOrEmpty(searchString))
             {
-                
+
                 switch (searchField)
                 {
                     case "Product":
@@ -153,7 +154,7 @@ namespace SiegeNut.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
+
             ViewBag.ProductID = new SelectList(db.Products, "ID", "Name", review.ProductID);
             return View(review);
         }
