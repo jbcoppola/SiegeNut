@@ -6,21 +6,8 @@
 @section Header {
     <h1>Edit</h1>
 }
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
-        <div class="col-sm-6 col-sm-offset-3">
-            @Html.Partial("_ReviewForm", Model)
-            <div class="form-group">
-                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
+@section Form {
+    @Html.Partial("_ReviewForm", Model)
 }
 
 @section Scripts {
