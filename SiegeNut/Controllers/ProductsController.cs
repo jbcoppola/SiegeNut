@@ -34,22 +34,6 @@ namespace SiegeNut.Controllers
             return View(db.Products.ToList());
         }
 
-        // GET: Products/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product = db.Products.Find(id);
-            ViewBag.isAdmin = IsAdmin();
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
-            return View(product);
-        }
-
         // GET: Products/Create
         public ActionResult Create()
         {

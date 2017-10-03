@@ -333,11 +333,12 @@
     <Content Include="Views\Reviews\Index.cshtml" />
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Delete.cshtml" />
-    <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Reviews\_ReviewBody.cshtml" />
+    <Content Include="Views\Reviews\_ReviewForm.cshtml" />
+    <Content Include="Views\Products\_ProductForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

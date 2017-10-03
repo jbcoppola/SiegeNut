@@ -28,6 +28,15 @@ a, a:hover, a:focus {
     margin: 0px 3vh 3vh 3vh;
     min-height: 25vh;
 }
+.form {
+    padding: 0px 30px;
+}
+.form .col-md-6 {
+    max-width: 700px;
+}
+.form textarea {
+    max-width: 100%;
+}
 h1 {
     font-family: 'Kumar One';
     font-size: 60px;
@@ -139,7 +148,6 @@ textarea.form-control {
 .item .img-rounded {
     margin: 50px 0px;
     border: 7px solid lightgray;
-    border-radius: 2%;
 }
 .list .search-row {
     border: none;
@@ -148,6 +156,9 @@ textarea.form-control {
 }
 .list .search-row .col-lg-6 {
     padding: 5px 0px;
+}
+.list .item .image img {
+    max-height: 60vh;
 }
 .input-group-lg > .input-group-btn > select.btn {
     padding: 0px 15px;

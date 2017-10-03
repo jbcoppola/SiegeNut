@@ -18,13 +18,16 @@
     {
         <div class="row item">
             <div class="col-md-12">
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(model => item.Name)
             </div>
             <div class="col-md-12">
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(model => item.Description)
+            </div>
+            <div class="col-md-12 center-block image">
+                <img src="@Url.Content(item.ImageURL)" class="img-responsive img-rounded" alt="Image" />
             </div>
             <div class="col-md-12">
-                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn" })
+                @Html.ActionLink("Reviews for this product", "Index", "Reviews", new { searchString = item.Name, searchField = "Product" }, new { @class = "btn" })
                 @if (ViewBag.isAdmin)
                 {
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })

@@ -1,0 +1,25 @@
+﻿@model SiegeNut.Models.Review
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ProductID, "Siege Weapon")
+    @Html.DropDownList("ProductID", null, htmlAttributes: new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.ProductID, "", new { @class = "text-danger" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Rating)
+    @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Title)
+    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.MainText, "Review")
+    @Html.TextAreaFor(model => model.MainText, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.MainText, "", new { @class = "text-danger" })
+</div>
