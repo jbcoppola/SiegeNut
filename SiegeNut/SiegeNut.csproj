@@ -251,6 +251,10 @@
     <Compile Include="Migrations\201710030300543_ratings to double.Designer.cs">
       <DependentUpon>201710030300543_ratings to double.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710031505527_Admin account.cs" />
+    <Compile Include="Migrations\201710031505527_Admin account.Designer.cs">
+      <DependentUpon>201710031505527_Admin account.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -330,7 +334,7 @@
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\_RegisterForm.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
@@ -356,6 +360,7 @@
     <Content Include="Views\Reviews\_ReviewBody.cshtml" />
     <Content Include="Views\Reviews\_ReviewForm.cshtml" />
     <Content Include="Views\Products\_ProductForm.cshtml" />
+    <Content Include="Views\Account\_LoginForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -394,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710030300543_ratings to double.resx">
       <DependentUpon>201710030300543_ratings to double.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710031505527_Admin account.resx">
+      <DependentUpon>201710031505527_Admin account.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

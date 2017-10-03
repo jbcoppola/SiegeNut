@@ -79,6 +79,12 @@ namespace SiegeNut.Migrations
                     UserName = "goldcrown50",
                     PasswordHash = password,
                     AccountType = ApplicationUser.UserAccountType
+                },
+                new ApplicationUser
+                {
+                    UserName = "Admin",
+                    PasswordHash = passwordHash.HashPassword("Admin"),
+                    AccountType = ApplicationUser.AdminAccountType
                 });
 
             int trebuchet = 1;

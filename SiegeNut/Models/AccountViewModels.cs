@@ -46,12 +46,11 @@ namespace SiegeNut.Models
         public string Email { get; set; }
     }
 
-    public class LoginViewModel
+    public class LoginModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "User Name")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -62,7 +61,7 @@ namespace SiegeNut.Models
         public bool RememberMe { get; set; }
     }
 
-    public class RegisterViewModel
+    public class RegisterModel
     {
         [Required]
         [EmailAddress]
@@ -83,6 +82,12 @@ namespace SiegeNut.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+    }
+
+    public class LoginViewModel
+    {
+        public RegisterModel RegisterModel { get; set; }
+        public LoginModel LoginModel { get; set; }
     }
 
     public class ResetPasswordViewModel

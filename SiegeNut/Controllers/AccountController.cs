@@ -57,8 +57,11 @@ namespace SiegeNut.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            var model = new LoginViewModel();
+            model.LoginModel = new LoginModel();
+            model.RegisterModel = new RegisterModel();
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return View(model);
         }
 
         //
@@ -66,7 +69,7 @@ namespace SiegeNut.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -75,7 +78,7 @@ namespace SiegeNut.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -135,19 +138,11 @@ namespace SiegeNut.Controllers
         }
 
         //
-        // GET: /Account/Register
-        [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
