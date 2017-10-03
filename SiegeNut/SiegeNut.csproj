@@ -247,6 +247,10 @@
     <Compile Include="Migrations\201709302228531_User AccountType.Designer.cs">
       <DependentUpon>201709302228531_User AccountType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710030300543_ratings to double.cs" />
+    <Compile Include="Migrations\201710030300543_ratings to double.Designer.cs">
+      <DependentUpon>201710030300543_ratings to double.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -268,8 +272,12 @@
     <Content Include="Images\Battering ram.JPG" />
     <Content Include="Images\castle-header.jpg" />
     <Content Include="Images\empty star.png" />
+    <Content Include="Images\half empty star left.png" />
+    <Content Include="Images\half empty star right.png" />
     <Content Include="Images\half empty star.png" />
     <Content Include="Images\half full star.png" />
+    <Content Include="Images\half star left.png" />
+    <Content Include="Images\half star right.png" />
     <Content Include="Images\halfstar.png" />
     <Content Include="Images\Portcullis.jpg" />
     <Content Include="Images\star.png" />
@@ -378,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709302228531_User AccountType.resx">
       <DependentUpon>201709302228531_User AccountType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710030300543_ratings to double.resx">
+      <DependentUpon>201710030300543_ratings to double.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

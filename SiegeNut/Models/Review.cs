@@ -16,7 +16,7 @@ namespace SiegeNut.Models
         [ForeignKey("ProductID")]
         public Product Product { get; set; }
 
-        public int Rating { get; set; }
+        public double Rating { get; set; }
         public string Title { get; set; }
         [Column(TypeName = "DateTime2")]
         public DateTime DateWritten { get; set; }
