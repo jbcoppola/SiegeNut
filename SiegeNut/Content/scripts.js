@@ -2,28 +2,15 @@
 
     /* 1. Visualizing things on Hover - See next part for action on click */
     var currentRating = $('.ratings').children('input').val();
+    var v;
     $('.ratings img').on('mouseover', function () {
         var onStar = $(this).attr('value'); // The star currently mouse on
-        console.log(onStar);
+
         // Now highlight all the stars that's not after the current hovered star
-        $(this).parent().children().each(function (e) {
-            if ($(this).attr('value') <= onStar) {
-                $(this).addClass('border');
-            }
-            else {
-                $(this).removeClass('border');
-            }
-        });
+        StarUpdate(this, onStar);
 
     }).on('mouseout', function () {
-        $(this).parent().children().each(function (e) {
-            if ($(this).attr('value') <= currentRating) {
-                $(this).addClass('border');
-            }
-            else {
-                $(this).removeClass('border');
-            }
-        });
+        StarUpdate(this, currentRating);
     });
 
 
@@ -56,8 +43,16 @@
 
 });
 
-
-//function responseMessage(msg) {
-//    $('.success-box').fadeIn(200);
-//    $('.success-box div.text-message').html("<span>" + msg + "</span>");
-//}
+function StarUpdate(f, rating) {
+    $(f).parent().children().each(function (e) {
+        v = $(this).attr('value');
+        if (v <= rating) {
+            if (v % 1 != 0) { $(this).attr('src', '/Images/half star left.png') }
+            else { $(this).attr('src', '/Images/half star right.png') }
+        }
+        else {
+            if (v % 1 != 0) { $(this).attr('src', '/Images/half empty star left.png') }
+            else { $(this).attr('src', '/Images/half empty star right.png') }
+        }
+    });
+};
