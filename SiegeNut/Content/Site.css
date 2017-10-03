@@ -264,6 +264,12 @@ textarea {
 .ratings img {
     height: 20px;
 }
+.border {
+    background-color: red;
+}
+.ratings {
+    margin: 20px 0px;
+}
 @media (max-width: 978px) {
     .body-content {
         padding: 10px;

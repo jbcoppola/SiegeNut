@@ -9,6 +9,10 @@
     <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Kumar+One|Libre+Baskerville|Playfair+Display+SC" rel="stylesheet">
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </head>
 <body>
     @Html.Partial("_Navbar")
@@ -63,8 +67,5 @@
     <div class="content footer-content">
         <p>&copy; @DateTime.Now.Year - SiegeNut</p>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

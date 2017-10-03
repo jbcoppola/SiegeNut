@@ -4,17 +4,17 @@
     <strong>@Html.DisplayFor(model => model.Product.Name)</strong>
 </div>
 <div class="col-md-12 ratings">
-    @for (double i = 0; i < 5; i += 0.5)
+    @for (double i = 0.5; i <= 5; i += 0.5)
     {
-        if (i < Model.Rating)
+        if (i <= Model.Rating)
         {
-            if (i % 1 == 0){<img src="~/Images/half star left.png"/>}
-            else {<img src="~/Images/half star right.png"/>}
+            if (i % 1 != 0){<img src="~/Images/half star left.png" value = @i/>}
+            else {<img src="~/Images/half star right.png" value = @i/>}
         }
         else
         {
-            if (i % 1 == 0) {<img src="~/Images/half empty star left.png"/>}
-            else {<img src="~/Images/half empty star right.png"/>}
+            if (i % 1 != 0) {<img src="~/Images/half empty star left.png" value = @i/>}
+            else {<img src="~/Images/half empty star right.png" value = @i/>}
         }
     }
 </div>

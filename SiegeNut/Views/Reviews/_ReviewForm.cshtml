@@ -1,4 +1,5 @@
 ﻿@model SiegeNut.Models.Review
+<script src="~/Content/scripts.js"></script>
 
 <div class="form-group">
     @Html.LabelFor(model => model.ProductID, "Siege Weapon")
@@ -6,10 +7,27 @@
     @Html.ValidationMessageFor(model => model.ProductID, "", new { @class = "text-danger" })
 </div>
 
-<div class="form-group">
-    @Html.LabelFor(model => model.Rating)
+<div class="form-group ratings">
+    @for (double i = 0.5; i <= 5; i += 0.5)
+    {
+        if (i <= Model.Rating)
+        {
+            if (i % 1 != 0)
+            {<img src="~/Images/half star left.png" value=@i />}
+            else
+            {<img src="~/Images/half star right.png" value=@i />}
+        }
+        else
+        {
+            if (i % 1 != 0)
+            {<img src="~/Images/half empty star left.png" value=@i />}
+            else
+            {<img src="~/Images/half empty star right.png" value=@i />}
+        }
+    }
+    @*@Html.LabelFor(model => model.Rating)
     @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+    @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })*@
 </div>
 
 <div class="form-group">
