@@ -25,7 +25,10 @@
             {<img src="~/Images/half empty star right.png" value=@i />}
         }
     }
-    @*@Html.LabelFor(model => model.Rating)
+    @Html.HiddenFor(model => model.Rating)
+
+    @*
+    @Html.LabelFor(model => model.Rating)
     @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
     @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })*@
 </div>
