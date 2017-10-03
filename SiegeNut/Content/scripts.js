@@ -17,16 +17,7 @@
     /* 2. Action to perform on click */
     $('.ratings img').on('click', function () {
         currentRating = $(this).attr('value'); // The star currently selected
-        var stars = $(this).parent().children('li.star');
-
-        for (i = 0; i < stars.length; i++) {
-            $(stars[i]).removeClass('border');
-        }
-
-        for (i = 0; i < currentRating; i++) {
-            $(stars[i]).addClass('border');
-        }
-
+        
         //// JUST RESPONSE (Not needed)
         //var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
         //var msg = "";
