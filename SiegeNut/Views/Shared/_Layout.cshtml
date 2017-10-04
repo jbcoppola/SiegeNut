@@ -20,9 +20,9 @@
 
         @if (IsSectionDefined("HomeHeader"))
             {
-            <div class="header text-center">
-                @RenderSection("HomeHeader", required: false)
-            </div>
+        <div class="header text-center">
+            @RenderSection("HomeHeader", required: false)
+        </div>
         }
 
         else if (IsSectionDefined("Header"))
@@ -34,25 +34,25 @@
         <div class="content body-content">
             @if (IsSectionDefined("List"))
             {
-                <div class="list">
-                    @RenderSection("List", required: false)
-                </div>
+            <div class="list">
+                @RenderSection("List", required: false)
+            </div>
             }
             else if (IsSectionDefined("Form"))
             {
-                    <form class ="form" id="form" method="post">
-                        @Html.AntiForgeryToken()
-                        <div class="row form-horizontal">
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            <div class="col-sm-6 col-sm-offset-3">
-                                @RenderSection("Form", required: false)
-                                <div class="form-group">
-                                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
-                                    <input type="submit" value=@ViewBag.Title class="btn btn-default pull-right" />
-                                </div>
+                <form class="form" id="form" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="row form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="col-sm-6 col-sm-offset-3">
+                            @RenderSection("Form", required: false)
+                            <div class="form-group">
+                                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
+                                <input type="submit" value=@ViewBag.Title class="btn btn-default pull-right" />
                             </div>
                         </div>
-                    </form>
+                    </div>
+                </form>
             }
             else
             {

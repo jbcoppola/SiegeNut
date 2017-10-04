@@ -1,19 +1,18 @@
 ﻿@model IEnumerable<SiegeNut.Models.Product>
-
 @{
     ViewBag.Title = "Index";
 }
 @section header {
     <h1>Products</h1>
 }
-
 @section List {
-@if (ViewBag.isAdmin)
-{
-    <p>
-        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
-    </p>
-}
+<script src="~/Content/scripts.js"></script>
+    @if (ViewBag.isAdmin)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
+        </p>
+    }
     @foreach (var item in Model)
     {
         <div class="row item">
@@ -21,10 +20,16 @@
                 @Html.DisplayFor(model => item.Name)
             </div>
             <div class="col-md-12">
-                @if (!string.IsNullOrEmpty(item.Description)) { @Html.DisplayFor(model => item.Description) }
+                @if (!string.IsNullOrEmpty(item.Description))
+                {
+                    @Html.DisplayFor(model => item.Description)
+                }
             </div>
-            <div class="col-md-12 center-block image">
-                @if (!string.IsNullOrEmpty(item.ImageURL)) { <img src="@Url.Content(item.ImageURL)" class="img-responsive img-rounded" alt="Image" />}
+            <div class="col-md-12 image">
+                @if (!string.IsNullOrEmpty(item.ImageURL))
+                {
+                    <img src="@Url.Content(item.ImageURL)" class="img-responsive img-rounded lightbox-trigger" alt="Image" />
+                }
             </div>
             <div class="col-md-12">
                 @Html.ActionLink("Reviews for this product", "Index", "Reviews", new { searchString = item.Name, searchField = "Product" }, new { @class = "btn" })
