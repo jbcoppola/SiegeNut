@@ -1,6 +1,11 @@
 ﻿$(document).ready(function () {
-    if ($('select.btn:selected').attr("value") != "Rating") { $('select.rating-search').hide(); }
-    else { $('input.text-search').hide(); }
+    if ($('select :selected').attr('value') == "Rating") {
+        $('select.rating-search').show();
+        $('input.text-search').hide();
+    }
+    else {
+        $('select.rating-search').hide();
+    }
     $('select.btn option').on('click', function () {
         if ($(this).attr('value') == "Rating") {
             $('input.text-search').hide();
