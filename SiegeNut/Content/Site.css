@@ -36,6 +36,7 @@ a, a:hover, a:focus {
 }
 .form-group textarea {
     max-width: 100%;
+    min-width: 100%;
 }
 .login .col-md-6 {
     padding: 30px 50px;
