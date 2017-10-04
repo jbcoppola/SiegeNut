@@ -16,25 +16,24 @@
     });
     //lightbox script
     var src;
-    $('.img-responsive').on('click', function () {
+    $('.lightbox-trigger').on('click', function () {
         //Get clicked link src
         src = $(this).attr("src");
 
         /* 	
 		If the lightbox window HTML already exists in document, 
-		change the img src to to match the href of whatever link was clicked
+		change the img src to to match the src of whatever image was clicked
 		
-		If the lightbox window HTML doesn't exist, create it and insert it.
-		(This will only happen the first time around)
+		If the lightbox window HTML doesn't exist, create and insert it.
+		(This will only happen the first time)
 		*/
 
         if ($('#lightbox').length > 0) { // #lightbox exists
 
-            //place href as img src value
+            //place src as img src value
             $('#content img').attr('src', src);
-            console.log(src);
 
-            //show lightbox window - you could use .show('fast') for a transition
+            //show lightbox window
             $('#lightbox').show();
         }
 
@@ -44,7 +43,7 @@
             var lightbox =
 			'<div id="lightbox">' +
 				'<p>Click to close</p>' +
-				'<div id="content">' + //insert clicked link's href into img src
+				'<div id="content">' + //insert clicked image src into lightbox
 					'<img src="' + src + '" />' +
 				'</div>' +
 			'</div>';
@@ -53,7 +52,7 @@
             $('body').append(lightbox);
         }
 
-        $('#lightbox').on('click', function () { //must use live, as the lightbox element is inserted into the DOM
+        $('#lightbox').on('click', function () { //click anywhere to hide the lightbox
             $('#lightbox').hide();
         });
 
