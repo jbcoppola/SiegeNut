@@ -10,6 +10,7 @@
 }
 
 @section List {
+<script src="~/Content/fieldSelect.js"></script>
     @if (ViewBag.isAuthenticated)
     {
         @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
@@ -24,11 +25,20 @@
     {
                         new SelectListItem() {Text = "Search By", Value="", Selected=true},
                         new SelectListItem() {Text = "Product", Value="Product"},
-                        new SelectListItem() {Text = "Rating", Value="Rating"},
+                        new SelectListItem() {Text = "Rating", Value="Rating" },
                         new SelectListItem() {Text = "Author", Value="Author"}
     }, new { @class = "btn" })
                     </span>
-                    @Html.TextBox("SearchString", ViewBag.CurrentSearch as string, new { @class = "form-control" })
+                    @Html.TextBox("searchString", ViewBag.CurrentSearch as string, new { @class = "form-control text-search" })
+                    @Html.DropDownList("searchRating", new List<SelectListItem>
+    {
+                        new SelectListItem() {Text = "5 Stars", Value="5"},
+                        new SelectListItem() {Text = "4-5 Stars", Value="4"},
+                        new SelectListItem() {Text = "3-4 Stars", Value="3"},
+                        new SelectListItem() {Text = "2-3 Stars", Value="2"},
+                        new SelectListItem() {Text = "1-2 Stars", Value="1"},
+                        new SelectListItem() {Text = "1/2 Star", Value="0"},
+    }, new { @class = "form-control rating-search" })
                     <span class="input-group-btn">
                         <input type="submit" class="btn btn-default btn-lg" value="Search" />
                     </span>

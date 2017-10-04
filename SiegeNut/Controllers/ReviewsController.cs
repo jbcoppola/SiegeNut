@@ -29,7 +29,7 @@ namespace SiegeNut.Controllers
         }
 
         // GET: Reviews
-        public ActionResult Index(string sortOrder, string currentField, string currentSearch, string searchString, string searchField, int? page)
+        public ActionResult Index(string sortOrder, string currentField, string currentSearch, string searchString, int? searchRating, string searchField, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.ProductSortParm = String.IsNullOrEmpty(sortOrder) || sortOrder == "Product" ? "product_desc" : "Product";
@@ -38,7 +38,8 @@ namespace SiegeNut.Controllers
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.CurrentField = searchField;
             ViewBag.CurrentUser = User.Identity.GetUserId();
-            if (searchString != null)
+            
+            if (searchString != null || searchRating != null)
             {
                 page = 1;
             }
@@ -47,15 +48,13 @@ namespace SiegeNut.Controllers
                 searchField = currentField;
                 searchString = currentSearch;
             }
-            ViewBag.CurrentField = searchField;
-            ViewBag.CurrentSearch = searchString;
+            if (currentField == "Rating") { ViewBag.CurrentSearch = searchRating; }
+            else { ViewBag.CurrentSearch = searchString; }
             ViewBag.isAdmin = IsAdmin();
             ViewBag.isAuthenticated = User.Identity.IsAuthenticated;
-            
             var reviews = db.Reviews.Include(r => r.Author).Include(r => r.Product);
-            if (!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(searchString) || searchRating != null)
             {
-
                 switch (searchField)
                 {
                     case "Product":
@@ -63,13 +62,35 @@ namespace SiegeNut.Controllers
                                        || r.Product.Name.Contains(searchString));
                         break;
                     case "Rating":
-                        int searchNumber;
-                        int.TryParse(searchString, out searchNumber);
-                        reviews = reviews.Where(r => searchNumber == r.Rating);
+                        switch (searchRating)
+                        {
+                            case 5:
+                                reviews = reviews.Where(r => r.Rating == 5.0);
+                                break;
+                            case 4:
+                                reviews = reviews.Where(r => r.Rating <= 5.0 && r.Rating >= 4.0);
+                                break;
+                            case 3:
+                                reviews = reviews.Where(r => r.Rating <= 4.0 && r.Rating >= 3.0);
+                                break;
+                            case 2:
+                                reviews = reviews.Where(r => r.Rating <= 3.0 && r.Rating >= 2.0);
+                                break;
+                            case 1:
+                                reviews = reviews.Where(r => r.Rating <= 2.0 && r.Rating >= 1.0);
+                                break;
+                            case 0:
+                                reviews = reviews.Where(r => r.Rating == 0.5);
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     case "Author":
                         reviews = reviews.Where(r => r.Author.UserName.Contains(searchString)
                                        || r.Author.UserName.Contains(searchString));
+                        break;
+                    default:
                         break;
                 }
             }
