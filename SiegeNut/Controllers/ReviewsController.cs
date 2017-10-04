@@ -134,7 +134,9 @@ namespace SiegeNut.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 ViewBag.ProductID = new SelectList(db.Products, "ID", "Name");
-                return View();
+                Review review = new Review();
+                review.Rating = 5;
+                return View(review);
             }
             return RedirectToAction("Index");
         }

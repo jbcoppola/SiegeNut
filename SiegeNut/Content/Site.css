@@ -262,7 +262,13 @@ textarea {
     margin: 2px 0px;
 }
 .ratings img {
-    height: 20px;
+    height: 25px;
+}
+.form-group img {
+    cursor: pointer;
+}
+.form-group.ratings:active {
+    background: white;
 }
 .border {
     background-color: red;
