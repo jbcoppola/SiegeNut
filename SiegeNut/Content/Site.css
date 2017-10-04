@@ -287,6 +287,11 @@ textarea {
     text-align:center;
 }
 #lightbox img {
+    position: fixed;
+  top: 52%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
     box-shadow:0 0 25px #111;
     -webkit-box-shadow:0 0 25px #111;
     -moz-box-shadow:0 0 25px #111;
