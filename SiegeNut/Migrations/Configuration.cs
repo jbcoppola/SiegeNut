@@ -84,7 +84,8 @@ namespace SiegeNut.Migrations
                 {
                     UserName = "Admin",
                     PasswordHash = passwordHash.HashPassword("Admin"),
-                    AccountType = ApplicationUser.AdminAccountType
+                    AccountType = ApplicationUser.AdminAccountType,
+                    SecurityStamp = "024efe60 - c78d - 4ead - a40a - c371cbdb6ffc"
                 });
 
             int trebuchet = 1;

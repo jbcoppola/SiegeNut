@@ -191,6 +191,7 @@ namespace SiegeNut.Controllers
             if (ModelState.IsValid)
             {
                 review.AuthorID = User.Identity.GetUserId();
+                review.DateWritten = DateTime.Now;
                 db.Entry(review).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
