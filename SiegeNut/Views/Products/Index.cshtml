@@ -21,10 +21,10 @@
                 @Html.DisplayFor(model => item.Name)
             </div>
             <div class="col-md-12">
-                @Html.DisplayFor(model => item.Description)
+                @if (!string.IsNullOrEmpty(item.Description)) { @Html.DisplayFor(model => item.Description) }
             </div>
             <div class="col-md-12 center-block image">
-                <img src="@Url.Content(item.ImageURL)" class="img-responsive img-rounded" alt="Image" />
+                @if (!string.IsNullOrEmpty(item.ImageURL)) { <img src="@Url.Content(item.ImageURL)" class="img-responsive img-rounded" alt="Image" />}
             </div>
             <div class="col-md-12">
                 @Html.ActionLink("Reviews for this product", "Index", "Reviews", new { searchString = item.Name, searchField = "Product" }, new { @class = "btn" })

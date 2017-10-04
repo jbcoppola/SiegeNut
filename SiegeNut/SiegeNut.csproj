@@ -255,6 +255,10 @@
     <Compile Include="Migrations\201710031505527_Admin account.Designer.cs">
       <DependentUpon>201710031505527_Admin account.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710041502027_Product name is required.cs" />
+    <Compile Include="Migrations\201710041502027_Product name is required.Designer.cs">
+      <DependentUpon>201710041502027_Product name is required.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -402,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710031505527_Admin account.resx">
       <DependentUpon>201710031505527_Admin account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710041502027_Product name is required.resx">
+      <DependentUpon>201710041502027_Product name is required.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
