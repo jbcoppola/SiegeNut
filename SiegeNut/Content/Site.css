@@ -160,7 +160,7 @@ textarea.form-control {
     border: 7px solid lightgray;
 }
 .lightbox-trigger:hover {
-    border-color: darkgray;
+    border-color: #c2c2c2;
     cursor: pointer;
 }
 .list .search-row {
