@@ -4,16 +4,14 @@
     var v;
     $('.ratings img').on('mouseover', function () {
         var onStar = $(this).attr('value'); // The star with cursor over it
-
         StarUpdate(this, onStar); //shows rating hovered over
-
     }).on('mouseout', function () {
         StarUpdate(this, currentRating); //reverts to default rating or selected rating
     });
 
-
     /* updates current rating with what's clicked */
     $('.ratings img').on('click', function () {
+        $(this).parent().children().animate({ backgroundColor: 'white' },0).animate({ backgroundColor: 'transparent' },"fast"); //highlight on click
         currentRating = $(this).attr('value'); // The star currently selected
         $("#Rating").val(currentRating); //changes value of hidden field
     });

@@ -268,8 +268,8 @@ textarea {
 .form-group img {
     cursor: pointer;
 }
-.form-group.ratings:active {
-    background: white;
+.highlight {
+    background: red;
 }
 .border {
     background-color: red;
