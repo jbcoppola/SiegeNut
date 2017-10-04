@@ -129,26 +129,7 @@ namespace SiegeNut.Controllers
             int pageNumber = (page ?? 1);
             return View(reviews.ToPagedList(pageNumber, pageSize));
         }
-
-        // GET: Reviews/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Review review = db.Reviews.Find(id);
-            review.Product = db.Products.Find(review.ProductID);
-            review.Author = db.Users.Find(review.AuthorID);
-            ViewBag.CurrentUser = User.Identity.GetUserId();
-            ViewBag.isAdmin = IsAdmin();
-            if (review == null)
-            {
-                return HttpNotFound();
-            }
-            return View(review);
-        }
-
+        
         // GET: Reviews/Create
         public ActionResult Create()
         {

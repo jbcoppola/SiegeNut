@@ -10,7 +10,7 @@
 }
 
 @section List {
-<script src="~/Content/fieldSelect.js"></script>
+    <script src="~/Content/fieldSelect.js"></script>
     @if (ViewBag.isAuthenticated)
     {
         @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
@@ -59,7 +59,10 @@
         <div class="row item">
             @Html.Partial("_ReviewBody", item)
             <div class="col-md-12">
-                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn" })
+                @if (ViewBag.CurrentSearch != item.Author.UserName)
+                {
+                    @Html.ActionLink("Reviews by this user", "Index", "Reviews", new { searchString = item.Author.UserName, searchField = "Author" }, new { @class = "btn" })
+                }
                 @if (ViewBag.CurrentUser == item.AuthorID || ViewBag.isAdmin)
                 {
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
