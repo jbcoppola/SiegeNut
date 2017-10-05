@@ -8,7 +8,6 @@
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
                 <p><h1>SiegeNut</h1></p>
-                <hr />
                 <p><h3>Your one-stop shop for all your siege weaponry needs</h3></p>
             </div>
         </div>
@@ -18,14 +17,14 @@
 <div class="front-page row text-center">
     @foreach (var product in Model)
     {
-    <div class="product col-md-4">
-        <div>
-            @Html.ActionLink(product.Name,"Index","Products",null, new { @class="btn btn-lg"})
-            <p>
-                @product.Description
-            </p>
+        <div class="product col-md-4">
+            <div>
+                @Html.ActionLink(product.Name, "Index", "Products", null, new { @class = "btn btn-lg" })
+                <p>
+                    @product.Description
+                </p>
+            </div>
         </div>
-    </div>
-    if (product.ID >= 3) { break; }
+        if (product.ID >= 3) { break; }
     }
 </div>

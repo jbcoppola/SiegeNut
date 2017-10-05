@@ -21,7 +21,9 @@
         @if (IsSectionDefined("HomeHeader"))
             {
         <div class="header text-center">
-            @RenderSection("HomeHeader", required: false)
+            <div class="overlay">
+                @RenderSection("HomeHeader", required: false)
+            </div>
         </div>
         }
 
