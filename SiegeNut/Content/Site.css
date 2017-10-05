@@ -5,28 +5,24 @@
 }
 .container-fluid {
     min-height: 95vh;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.header-content, .footer-content {
+    background-color: lightgray;
+    padding: 30px;
 }
 .header-content {
-    background-color: lightgray;
     text-align: center;
-}
-a, a:hover, a:focus {
-    outline: 0;
-}
-.content {
-    padding: 20px 50px;
-}
-.footer-content {
-    background-color: lightgray;
-    padding-left: 50px;
 }
 .footer-content p {
     margin: 0px;
     font-size: 16px;
 }
-.body-content {
-    margin: 0px 3vh 3vh 3vh;
-    min-height: 25vh;
+a, a:hover, a:focus {
+    outline: 0;
 }
 .form {
     padding: 0px 30px;
@@ -121,12 +117,29 @@ h2, h3, h4, h5, h6,
     float:none;
     margin: auto;
 }
-.front-page h2:first-child {
+.front-page .row {
+    padding: 50px;
+}
+.front-page .row:first-child {
+    min-height: 25vh;
+}
+.front-page .row:nth-child(2) {
+    background-color: rgba(0,0,0,0.05);
+}
+.front-page .row:nth-child(2) .col-md-6:first-child {
+    padding: 0px 100px 40px 120px;
+}
+.front-page .row:nth-child(2) .col-md-6 img {
+    max-width: 100%;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.1);
+}
+.front-page .row:nth-child(2) p {
+    padding: 10px 0px;
+}
+.front-page .row h2:first-child {
     display: block;
-    margin: 0px auto 40px auto;
+    margin: 0px auto 50px auto;
     font-size: 40px;
-    padding: 10px;
-    width: 25%;
     font-weight: bold;
 }
 .front-page h3 {
@@ -320,9 +333,26 @@ textarea {
 .rating-search {
     display: none;
 }
-@media (max-width: 978px) {
-    .body-content {
-        padding: 10px;
-    margin: 0px 0px 3vh 0px;
+@media (max-width: 1170px) {
+    .front-page .row:nth-child(2) .col-md-6:first-child {
+    padding: 0px 60px 40px 60px;
+    text-align: center;
 }
+@media (max-width: 978px) {
+    .front-page .row {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .front-page .row:nth-child(2) .col-md-6:first-child {
+    padding: 0px 30px 40px 30px;
+    text-align: center;
+}
+    .front-page .row:nth-child(2) .col-md-6 img {
+        display: block;
+        margin: auto;
+        width: 50%;
+    }
+    .header .jumbotron h1 {
+        font-size: 40px;
+    }
 }
