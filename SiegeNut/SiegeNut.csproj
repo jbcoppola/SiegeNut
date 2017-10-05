@@ -289,6 +289,10 @@
     <Content Include="Images\half star left.png" />
     <Content Include="Images\half star right.png" />
     <Content Include="Images\halfstar.png" />
+    <Content Include="Images\noun_220014_cc quill.svg" />
+    <Content Include="Images\noun_559374_cc castle.svg" />
+    <Content Include="Images\noun_736489_cc treb.svg" />
+    <Content Include="Images\noun_962242_cc hammer.svg" />
     <Content Include="Images\Portcullis.jpg" />
     <Content Include="Images\star.png" />
     <Content Include="Images\Trebuchet.jpg" />
