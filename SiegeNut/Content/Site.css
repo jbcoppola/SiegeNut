@@ -195,27 +195,27 @@ textarea.form-control {
     color: black;
     border-color: darkgray;
 }
-.item {
+.list .item {
     padding: 20px;
     margin: 0px 3% 3% 3%;
 }
-.item,
+.list .item,
 .btn-create{
     border-radius: 6px;
     border: 1px solid lightgray;
 }
-.item div:first-child {
+.list .item div:first-child {
     font-size: 30px;
 }
 .btn-create {
     margin-bottom: 0px;
     margin-left: 3%;
 }
-.item .img-rounded {
+.list .item .img-rounded {
     margin: 50px 0px;
     border: 7px solid lightgray;
 }
-.lightbox-trigger:hover {
+.list .lightbox-trigger:hover {
     border-color: #c2c2c2;
     cursor: pointer;
 }
@@ -289,14 +289,28 @@ textarea {
 .page-box p {
     margin: 0px;
 }
-.info > div {
-    border: 1px solid lightgray;
-    padding: 40px 70px;
-    margin: 30px 0px;
-    border-radius: 6px;
-}
-.info div h2 {
+.info .row div h2 {
     margin: 0px 0px 30px 0px;
+    text-align: center;
+}
+.info .row .col-md-6 {
+    padding: 40px;
+}
+.info .row .row-eq-height .col-md-4 div {
+    padding: 30px;
+    margin-left: 2px;
+    margin-right: 2px;
+    height: 100%;
+}
+.info .row .row-eq-height .col-md-4 div {
+    background-color: rgba(0,0,0,0.02);
+}
+
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
 }
 .ratings {
     margin: 2px 0px;
@@ -321,8 +335,9 @@ textarea {
 }
 #lightbox img {
     position: fixed;
-  top: 52%;
+  top: 53%;
   left: 50%;
+  max-height: 97vh;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
     box-shadow:0 0 25px #111;
@@ -335,8 +350,9 @@ textarea {
 }
 @media (max-width: 1170px) {
     .front-page .row:nth-child(2) .col-md-6:first-child {
-    padding: 0px 60px 40px 60px;
-    text-align: center;
+        padding: 0px 60px 40px 60px;
+        text-align: center;
+    }
 }
 @media (max-width: 978px) {
     .front-page .row {
@@ -346,7 +362,7 @@ textarea {
     .front-page .row:nth-child(2) .col-md-6:first-child {
     padding: 0px 30px 40px 30px;
     text-align: center;
-}
+    }
     .front-page .row:nth-child(2) .col-md-6 img {
         display: block;
         margin: auto;
@@ -354,5 +370,21 @@ textarea {
     }
     .header .jumbotron h1 {
         font-size: 40px;
+    }
+    .info .row .col-md-10.col-md-offset-1 {
+        background-color: rgba(0,0,0,0.02);
+    }
+    .info .row-eq-height {
+        display: initial;
+    }
+    .info .row .row-eq-height .col-md-4 {
+        padding: 30px;
+    }
+    .info .row .row-eq-height .col-md-4 div {
+        padding: 0px;
+        background-color: transparent;
+        margin-left: 0px;
+        margin-right: 0px;
+        height: 100%;
     }
 }
