@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -290,11 +291,14 @@
     <Content Include="Images\half star left.png" />
     <Content Include="Images\half star right.png" />
     <Content Include="Images\halfstar.png" />
+    <Content Include="Images\carousel-logger.png" />
     <Content Include="Images\noun_220014_cc quill.svg" />
     <Content Include="Images\noun_559374_cc castle.svg" />
     <Content Include="Images\noun_736489_cc treb.svg" />
     <Content Include="Images\noun_962242_cc hammer.svg" />
     <Content Include="Images\Portcullis.jpg" />
+    <Content Include="Images\carousel-shipping.png" />
+    <Content Include="Images\carousel-siegenut-base.png" />
     <Content Include="Images\star.png" />
     <Content Include="Images\Trebuchet.jpg" />
     <Content Include="ApplicationInsights.config">

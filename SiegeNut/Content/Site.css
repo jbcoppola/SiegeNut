@@ -305,7 +305,9 @@ textarea {
 .info .row .row-eq-height .col-md-4 div {
     background-color: rgba(0,0,0,0.02);
 }
-
+.info .row:nth-of-type(2) {
+    background-color: rgba(0,0,0,0.05);
+}
 .row-eq-height {
     display: -webkit-box;
     display: -webkit-flex;
