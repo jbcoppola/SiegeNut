@@ -320,15 +320,7 @@ textarea {
 .info .carousel {
     border-radius: 18px;
     overflow: hidden;
-}
-.info .carousel .item:before {
-    box-shadow: inset 0 0 8px 0 rgba(0,0,0,0.2);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
+    box-shadow: 0 3px 3px rgba(0,0,0,0.5);
 }
 .info .carousel .carousel-control {
     height: 80px;
