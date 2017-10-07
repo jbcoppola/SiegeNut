@@ -6,12 +6,17 @@
 @section Header {
     <h1>@ViewBag.Title</h1>
 }
+<script src="~/Content/loginpage.js"></script >
 <div class="row login form">
-    <div class="col-md-6">
-        @Html.Partial("_LoginForm", Model.LoginModel)
-    </div>
-    <div class="col-md-6">
-        @Html.Partial("_RegisterForm", Model.RegisterModel)
+    <div class="col-md-6 col-md-offset-3">
+        <div class="text-center">
+            <div class="btn-group btn-group-lg">
+                <input type="button" class="btn" value="Login" />
+                <input type="button" class="btn" value="Register" />
+            </div>
+        </div>
+        <div id="register">@Html.Partial("_RegisterForm", Model.RegisterModel)</div>
+        <div id="login">@Html.Partial("_LoginForm", Model.LoginModel)</div>
     </div>
 </div>
 @section Scripts {
