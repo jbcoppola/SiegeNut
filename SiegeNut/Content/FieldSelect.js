@@ -6,8 +6,8 @@
     else {
         $('select.rating-search').hide();
     }
-    $('select.btn option').on('click', function () {
-        if ($(this).attr('value') == "Rating") {
+    $("select.btn").change(function () {
+        if ($(this).children(":selected").attr('value') == "Rating") {
             $('input.text-search').hide();
             $('select.rating-search').show();
         }
