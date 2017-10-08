@@ -35,7 +35,20 @@ a, a:hover, a:focus {
     min-width: 100%;
 }
 .login .col-md-6 {
-    padding: 30px 50px;
+    margin-top: 30px;
+    padding: 20px 50px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.1);
+}
+.login .selected,
+.login .selected:hover {
+    background-color: darkgray;
+    color: black;
+    border-color: darkgray;
+}
+.login p {
+    margin-top: 7px;
 }
 .login .col-md-6 > div {
     padding: 0px 20px;
@@ -44,7 +57,11 @@ a, a:hover, a:focus {
 }
 .login > .col-md-6 > .text-center {
     margin-top: 10px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+}
+.login .form-group.text-center {
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
 h1 {
     font-family: 'Kumar One';
