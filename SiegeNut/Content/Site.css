@@ -34,12 +34,18 @@ a, a:hover, a:focus {
     max-width: 100%;
     min-width: 100%;
 }
-.login .col-md-6 {
+.form .col-sm-6 {
     margin-top: 30px;
-    padding: 20px 50px;
+    padding: 30px 50px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 4px 0 rgba(0,0,0,0.1);
+}
+.form .col-sm-6 > div {
+    padding: 0px 20px;
+}
+.form .ratings img { 
+    height: 30px;
 }
 .login .selected,
 .login .selected:hover {
@@ -51,18 +57,11 @@ a, a:hover, a:focus {
 .login p {
     margin-top: 7px;
 }
-.login .col-md-6 > div {
-    padding: 0px 20px;
-}
-.login input {
-}
-.login > .col-md-6 > .text-center {
-    margin-top: 10px;
+.login > .col-sm-6 > .text-center {
     margin-bottom: 40px;
 }
-.login .form-group.text-center {
+.form .form-group:last-child {
     margin-top: 40px;
-    margin-bottom: 10px;
 }
 h1 {
     font-family: 'Kumar One';
