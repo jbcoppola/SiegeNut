@@ -1,31 +1,31 @@
 ﻿@model SiegeNut.Models.Review
 
 <div class="col-md-12">
-    <strong>@Html.DisplayFor(model => model.Product.Name)</strong>
-</div>
-<div class="col-md-12 ratings">
-    @for (double i = 0.5; i <= 5; i += 0.5)
-    {
-        if (i <= Model.Rating)
-        {
-            if (i % 1 != 0){<img src="~/Images/half star left.png" value = @i/>}
-            else {<img src="~/Images/half star right.png" value = @i/>}
-        }
-        else
-        {
-            if (i % 1 != 0) {<img src="~/Images/half empty star left.png" value = @i/>}
-            else {<img src="~/Images/half empty star right.png" value = @i/>}
-        }
-    }
+    <h2>@Html.DisplayFor(model => model.Product.Name)</h2>
 </div>
 <div class="col-md-12">
-    <strong>@Html.DisplayFor(model => model.Title)</strong>
-</div>
-<div class="col-md-12">
-    <strong>@Html.DisplayFor(model => model.Author.UserName)</strong> on
-    @Model.DateWritten.ToString("MMM dd, yyyy")
-</div>
-<div class="col-md-12">
+    <div class="review-title">
+        <span>
+            @for (double i = 0.5; i <= 5; i += 0.5)
+            {
+                if (i <= Model.Rating)
+                {
+                    if (i % 1 != 0)
+                    {<img src="~/Images/half star left.png" class="star" value=@i />}
+                    else
+                    {<img src="~/Images/half star right.png" class="star" value=@i />}
+                }
+                else
+                {
+                    if (i % 1 != 0)
+                    {<img src="~/Images/half empty star left.png" class="star" value=@i />}
+                    else
+                    {<img src="~/Images/half empty star right.png" class="star" value=@i />}
+                }
+            }
+        </span>
+        <p><strong>@Html.DisplayFor(model => model.Title)</strong></p>
+    </div>
+    <p>By <strong>@Html.DisplayFor(model => model.Author.UserName)</strong> on @Model.DateWritten.ToString("MMM dd, yyyy")</p>
     @Html.DisplayFor(model => model.MainText)
 </div>
-
