@@ -192,7 +192,7 @@ textarea.form-control {
     height: 300px;
 }
 .item .col-md-12 {
-    margin: 15px 0px;
+    margin: 20px 0px;
 }
 .item .col-md-12:last-of-type {
     margin-top: 30px;
@@ -226,17 +226,22 @@ textarea.form-control {
 .list .item,
 .btn-create{
     border-radius: 6px;
-    border: 1px solid lightgray;
 }
 .list .item {
-    box-shadow: 0px 4px 4px rgba(0,0,0,0.1);
+    background-color: white;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.1);
 }
 .list .item div:first-child {
     font-size: 30px;
+    margin: 12px 0px;
 }
 .btn-create {
     margin-bottom: 0px;
     margin-left: 3%;
+}
+.white {
+    background-color: white;
+    border: none;
 }
 .list .item .img-rounded {
     margin: 50px 0px;
@@ -253,7 +258,7 @@ textarea.form-control {
 .list .search-row {
     border: none;
     padding: 5px 0px;
-    margin: 0px 3%;
+    margin: 3px 3%;
 }
 .list .search-row .col-lg-6 {
     padding: 5px 0px;
@@ -297,9 +302,10 @@ textarea {
 }
 .pagination > li > a,
 .pagination > li > span {
-  padding: 10px 16px;
-  font-size: 18px;
-  color: gray;
+    padding: 10px 16px;
+    font-size: 18px;
+    color: gray;
+    box-shadow: 0px 2px 1px rgba(0,0,0,0.05);
 }
 
 .pagination > li:first-child > a,
@@ -379,17 +385,14 @@ textarea {
 .info > .row > .col-md-6:last-child {
     align-self: center;
 }
-.ratings {
-    margin: 2px 0px;
-}
 .ratings img {
     height: 25px;
 }
 .form-group img {
     cursor: pointer;
 }
-.ratings {
-    margin: 20px 0px;
+.list .item .ratings {
+    margin: 0;
 }
 #lightbox {
     position:fixed; /* keeps the lightbox window in the current viewport */
