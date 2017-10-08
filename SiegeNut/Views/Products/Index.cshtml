@@ -6,7 +6,7 @@
     <h1>Products</h1>
 }
 @section List {
-<script src="~/Content/lightbox.js"></script>
+    <script src="~/Content/lightbox.js"></script>
     @if (ViewBag.isAdmin)
     {
         <p>
@@ -16,36 +16,36 @@
 
     @*Photo Attributions:
         Trebuchet: http://en.wikipedia.org/wiki/User:ChrisO
-        Battering ram: https://en.wikipedia.org/wiki/User:Ballista 
+        Battering ram: https://en.wikipedia.org/wiki/User:Ballista
         Portcullis: https://www.flickr.com/photos/exfordy/3335770018 Brian Snelson*@
 
     @foreach (var item in Model)
     {
-        <div class="row item">
-            <div class="col-md-12">
-                <h2>@Html.DisplayFor(model => item.Name)</h2>
+        <div class="row row-eq-height item product">
+            <div class="col-md-6 text">
+                    <div>
+                        <h2>@Html.DisplayFor(model => item.Name)</h2>
+                        @if (!string.IsNullOrEmpty(item.Description))
+                        {
+                            @Html.DisplayFor(model => item.Description)
+                        }
+                    </div>
+                    <div>
+                        @Html.ActionLink("Reviews for this product", "Index", "Reviews", new { searchString = item.Name, searchField = "Product" }, new { @class = "btn" })
+                        @if (ViewBag.isAdmin)
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
+                        }
+                        @if (ViewBag.isAdmin)
+                        {
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn" })
+                        }
+                    </div>
             </div>
-            <div class="col-md-12">
-                @if (!string.IsNullOrEmpty(item.Description))
-                {
-                    @Html.DisplayFor(model => item.Description)
-                }
-            </div>
-            <div class="col-md-12 image">
+            <div class="col-md-6 image">
                 @if (!string.IsNullOrEmpty(item.ImageURL))
                 {
                     <img src="@Url.Content(item.ImageURL)" class="img-responsive img-rounded lightbox-trigger" alt="Image" />
-                }
-            </div>
-            <div class="col-md-12">
-                @Html.ActionLink("Reviews for this product", "Index", "Reviews", new { searchString = item.Name, searchField = "Product" }, new { @class = "btn" })
-                @if (ViewBag.isAdmin)
-                {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
-                }
-                @if (ViewBag.isAdmin)
-                {
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn" })
                 }
             </div>
         </div>
