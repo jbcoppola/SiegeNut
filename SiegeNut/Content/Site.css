@@ -1,4 +1,6 @@
-﻿body {
+﻿/*GENERAL ELEMENTS*/
+
+body {
     padding-top: 50px;
 	font-family: 'Libre Baskerville', serif;
     background-color: #F8F8F8;
@@ -10,59 +12,6 @@
     margin-right: auto;
     margin-left: auto;
 }
-.header-content, .footer-content {
-    background-color: rgba(0,0,0,0.08);
-    padding: 30px;
-}
-.header-content {
-    text-align: center;
-}
-.footer-content p {
-    margin: 0px;
-    font-size: 16px;
-}
-a, a:hover, a:focus {
-    outline: 0;
-}
-.form {
-    padding: 0px 30px;
-}
-.form .col-md-6 {
-    max-width: 700px;
-}
-.form-group textarea {
-    max-width: 100%;
-    min-width: 100%;
-}
-.form .col-sm-6 {
-    margin-top: 30px;
-    padding: 30px 50px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.1);
-}
-.form .col-sm-6 > div {
-    padding: 0px 20px;
-}
-.form .ratings img { 
-    height: 30px;
-}
-.login .selected,
-.login .selected:hover {
-    background-color: darkgray;
-    color: black;
-    border-color: darkgray;
-    box-shadow: inset 0px 2px 2px rgba(0,0,0,0.1);
-}
-.login p {
-    margin-top: 7px;
-}
-.login > .col-sm-6 > .text-center {
-    margin-bottom: 40px;
-}
-.form .form-group:last-child {
-    margin-top: 40px;
-}
 h1 {
     font-family: 'Kumar One';
     font-size: 60px;
@@ -71,7 +20,11 @@ h2, h3, h4, h5, h6,
 .navbar .navbar-collapse {
 	font-family: 'Playfair Display SC', serif;
 }
+a, a:hover, a:focus {
+    outline: 0;
+}
 /*NAVBAR*/
+
 .navbar .navbar-collapse {
 	text-align: center;
 }
@@ -102,7 +55,98 @@ h2, h3, h4, h5, h6,
 .navbar-default .navbar-nav > li > a:active {
     background-color: darkgray;
 }
+.navbar-brand {
+    font-family: 'Kumar One', cursive;
+}
+.btn {
+    border: 1px solid lightgray;
+    background-color: transparent;
+    color: gray;
+    font-family: 'Playfair Display SC', serif;
+    box-shadow: 0px 2px 1px rgba(0,0,0,0.05);
+}
+.btn:focus {
+    outline: none;
+}
+.btn:hover {
+    background-color: lightgray;
+    color: darkslategray;
+    border-color: rgba(0,0,0,0.2);
+    outline: none;
+}
+.btn:active {
+    box-shadow: none;
+    background-color: darkgray;
+    color: black;
+    border-color: darkgray;
+    box-shadow: inset 0px 2px 2px rgba(0,0,0,0.1);
+}
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+/*LAYOUT PAGE*/
 
+.header-content, .footer-content {
+    background-color: rgba(0,0,0,0.08);
+    padding: 30px;
+}
+.header-content {
+    text-align: center;
+}
+.footer-content p {
+    margin: 0px;
+    font-size: 16px;
+}
+
+/*FORMS*/
+
+.form {
+    padding: 0px 30px;
+}
+.form .col-md-6 {
+    max-width: 700px;
+}
+.form-group textarea {
+    max-width: 100%;
+    min-width: 100%;
+}
+.form .col-sm-6 {
+    margin-top: 30px;
+    padding: 30px 50px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.1);
+}
+.form .col-sm-6 > div {
+    padding: 0px 20px;
+}
+.form .ratings img {
+    height: 30px;
+}
+.form .form-group:last-child {
+    margin-top: 40px;
+}
+
+/*LOGIN PAGE*/
+
+.login .selected,
+.login .selected:hover {
+    background-color: darkgray;
+    color: black;
+    border-color: darkgray;
+    box-shadow: inset 0px 2px 2px rgba(0,0,0,0.1);
+}
+.login p {
+    margin-top: 7px;
+}
+.login > .col-sm-6 > .text-center {
+    margin-bottom: 40px;
+}
+
+/*FRONT PAGE*/
 .header {
     height: 75vh;
     background-color: transparent;
@@ -181,9 +225,9 @@ h2, h3, h4, h5, h6,
 .front-page span img {
     height: 50%;
 }
-.navbar-brand {
-	font-family: 'Kumar One', cursive;
-}
+
+/*LISTS*/
+
 .list {
     margin: 30px;
 }
@@ -209,28 +253,6 @@ textarea.form-control {
     align-items: flex-end;
     margin-bottom: 7px;
 }
-.btn {
-    border: 1px solid lightgray;
-    background-color: transparent;
-    color: gray;
-    font-family: 'Playfair Display SC', serif;
-    box-shadow: 0px 2px 1px rgba(0,0,0,0.05);
-}
-.btn:focus {
-    outline: none;
-}
-.btn:hover {
-    background-color: lightgray;
-    color: darkslategray;
-    border-color: rgba(0,0,0,0.2);
-}
-.btn:active {
-    box-shadow: none;
-    background-color: darkgray;
-    color: black;
-    border-color: darkgray;
-    box-shadow: inset 0px 2px 2px rgba(0,0,0,0.1);
-}
 .list .item {
     padding: 20px;
     margin: 0px 3% 2% 3%;
@@ -250,15 +272,25 @@ textarea.form-control {
     margin-bottom: 0px;
     margin-left: 3%;
 }
-.white {
-    background-color: white;
-    border: none;
-}
 .list .item .img-rounded {
     margin: 50px 0px;
     box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
     transition: 0.2s;
 }
+.list .search-row {
+    border: none;
+    padding: 5px 0px;
+    margin: 3px 3%;
+}
+.list .search-row .col-lg-6 {
+    padding: 5px 0px;
+}
+.rating-search {
+    display: none;
+}
+
+/*PRODUCTS PAGE*/
+
 .list .product .lightbox-trigger:hover {
     box-shadow: 0px 2px 14px rgba(0,0,0,0.4);
     cursor: pointer;
@@ -280,14 +312,6 @@ textarea.form-control {
     margin-top: 35px;
     text-align: center;
 }
-.list .search-row {
-    border: none;
-    padding: 5px 0px;
-    margin: 3px 3%;
-}
-.list .search-row .col-lg-6 {
-    padding: 5px 0px;
-}
 .list .product .image img {
     display: block;
     margin: auto;
@@ -299,10 +323,6 @@ textarea.form-control {
 }
 .input-group-btn:last-child > .btn {
     border-left: none;
-}
-.list .search-row select.btn:focus,
-.list .search-row select.btn:hover {
-    outline: none;
 }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -316,7 +336,29 @@ select,
 textarea {
     max-width: 1000px;
 }
+#lightbox {
+    position: fixed; /* keeps the lightbox window in the current viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    text-align: center;
+}
+#lightbox img {
+    position: fixed;
+    top: 53%;
+    left: 50%;
+    max-height: 97vh;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 25px #111;
+    -webkit-box-shadow: 0 0 25px #111;
+    -moz-box-shadow: 0 0 25px #111;
+    max-width: 940px;
+}
 
+/*PAGINATION*/
 
 .pagination > .active > a,
 .pagination > .active > span,
@@ -354,12 +396,8 @@ textarea {
     margin: 0px;
 }
 
-.row-eq-height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-}
+/*ABOUT PAGE*/
+
 .info .row div h2 {
     margin: 0px 0px 30px 0px;
     text-align: center;
@@ -415,30 +453,7 @@ textarea {
 .form-group img {
     cursor: pointer;
 }
-#lightbox {
-    position:fixed; /* keeps the lightbox window in the current viewport */
-    top:0; 
-    left:0;
-    width:100%; 
-    height:100%; 
-    background-color: rgba(0,0,0,0.7);
-    text-align:center;
-}
-#lightbox img {
-    position: fixed;
-  top: 53%;
-  left: 50%;
-  max-height: 97vh;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-    box-shadow:0 0 25px #111;
-    -webkit-box-shadow:0 0 25px #111;
-    -moz-box-shadow:0 0 25px #111;
-    max-width:940px;
-}
-.rating-search {
-    display: none;
-}
+
 @media (max-width: 1170px) {
     .front-page .row:nth-child(2) .col-md-6:first-child {
         padding: 0px 60px 40px 60px;
@@ -451,16 +466,16 @@ textarea {
         padding-right: 0px;
     }
 
-        .front-page .row:nth-child(2) .col-md-6:first-child {
-            padding: 0px 30px 40px 30px;
-            text-align: center;
-        }
+    .front-page .row:nth-child(2) .col-md-6:first-child {
+        padding: 0px 30px 40px 30px;
+        text-align: center;
+    }
 
-        .front-page .row:nth-child(2) .col-md-6 img {
-            display: block;
-            margin: auto;
-            width: 50%;
-        }
+    .front-page .row:nth-child(2) .col-md-6 img {
+        display: block;
+        margin: auto;
+        width: 50%;
+    }
 
     .header .jumbotron h1 {
         font-size: 40px;
@@ -481,11 +496,11 @@ textarea {
         padding: 30px;
     }
 
-        .info .row .row-eq-height .col-md-4 div {
-            padding: 0px;
-            background-color: transparent;
-            margin-left: 0px;
-            margin-right: 0px;
-            height: 100%;
-        }
+    .info .row .row-eq-height .col-md-4 div {
+        padding: 0px;
+        background-color: transparent;
+        margin-left: 0px;
+        margin-right: 0px;
+        height: 100%;
+    }
 }
