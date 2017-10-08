@@ -246,12 +246,15 @@ textarea.form-control {
 }
 .review-title p {
     margin: 0px;
-    margin-left: 10px;
 }
 .review-title {
     display: flex;
     align-items: flex-end;
     margin-bottom: 7px;
+}
+.review-title div:first-child {
+    min-width: 110px;
+    margin-right: 10px;
 }
 .list .item {
     padding: 20px;
@@ -502,5 +505,13 @@ textarea {
         margin-left: 0px;
         margin-right: 0px;
         height: 100%;
+    }
+}
+@media (max-width: 560px) {
+    .list {
+        margin: 0;
+    }
+    .review-title {
+        display: inherit;
     }
 }

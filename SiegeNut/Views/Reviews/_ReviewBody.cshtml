@@ -5,7 +5,7 @@
 </div>
 <div class="col-md-12">
     <div class="review-title">
-        <span>
+        <div>
             @for (double i = 0.5; i <= 5; i += 0.5)
             {
                 if (i <= Model.Rating)
@@ -23,8 +23,8 @@
                     {<img src="~/Images/half empty star right.png" class="star" value=@i />}
                 }
             }
-        </span>
-        <p><strong>@Html.DisplayFor(model => model.Title)</strong></p>
+        </div>
+        <div><p><strong>@Html.DisplayFor(model => model.Title)</strong></p></div>
     </div>
     <p>By <strong>@Html.DisplayFor(model => model.Author.UserName)</strong> on @Model.DateWritten.ToString("MMM dd, yyyy")</p>
     @Html.DisplayFor(model => model.MainText)
