@@ -10,7 +10,7 @@
     });
 
     $('.ratings img').on('click', function () {
-        $(this).parent().children().animate({ backgroundColor: 'white' }, 0).animate({ backgroundColor: 'transparent' }, "fast"); //highlight on click
+        $(this).parent().children().animate({ backgroundColor: 'yellow' }, 0).animate({ backgroundColor: 'transparent' }, "fast"); //highlight on click
         currentRating = $(this).attr('value'); // store value of currently selected star
         $("#Rating").val(currentRating); //changes value of hidden field
     });
