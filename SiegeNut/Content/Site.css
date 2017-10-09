@@ -236,7 +236,11 @@ a, a:hover, a:focus {
 }
 .icon-row span img {
     height: 50%;
-}.about .carousel {
+}
+.icon-row span.xs img {
+    height: 40%;
+}
+.about .carousel {
     border-radius: 18px;
     overflow: hidden;
     align-self: center;

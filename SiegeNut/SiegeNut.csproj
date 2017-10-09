@@ -293,10 +293,13 @@
     <Content Include="Images\half star right.png" />
     <Content Include="Images\halfstar.png" />
     <Content Include="Images\carousel-logger.png" />
+    <Content Include="Images\noun_1023751_cc horse.svg" />
+    <Content Include="Images\noun_189153_cc calipers.svg" />
     <Content Include="Images\noun_220014_cc quill.svg" />
     <Content Include="Images\noun_559374_cc castle.svg" />
     <Content Include="Images\noun_736489_cc treb.svg" />
     <Content Include="Images\noun_962242_cc hammer.svg" />
+    <Content Include="Images\noun_997837_cc crown.svg" />
     <Content Include="Images\Portcullis.jpg" />
     <Content Include="Images\carousel-shipping.png" />
     <Content Include="Images\carousel-siegenut-base.png" />
