@@ -186,7 +186,8 @@ a, a:hover, a:focus {
     flex-direction: column;
     justify-content:space-around;
 }
-.front-page .row {
+.front-page .row,
+.icon-row {
     padding: 50px;
 }
 .front-page .row:first-child {
@@ -205,19 +206,25 @@ a, a:hover, a:focus {
 .front-page .row:nth-child(2) p {
     padding: 10px 0px;
 }
-.front-page .row h2:first-child {
+.icon-row {
+    text-align: center;
+}
+.front-page .row h2,
+.about h2 {
     display: block;
     margin: 0px auto 50px auto;
     font-size: 40px;
     font-weight: bold;
 }
-.front-page h3 {
+.front-page h3,
+.icon-row h3 {
     font-size: 30px;
 }
-.front-page p {
+.front-page p,
+.icon-row p {
     padding: 10px 20px;
 }
-.front-page span {
+.icon-row span {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -227,8 +234,61 @@ a, a:hover, a:focus {
     border-radius: 50%;
     background-color: rgba(0,0,0,0.05);
 }
-.front-page span img {
+.icon-row span img {
     height: 50%;
+}.about .carousel {
+    border-radius: 18px;
+    overflow: hidden;
+    align-self: center;
+}
+.about .carousel .carousel-control {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin: auto 3%;
+    background-color: rgba(0,0,0,0.8);
+    background-image: none;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+}
+.about .carousel .carousel-control:focus {
+    opacity: 0.5;
+}
+.about .carousel .carousel-control:hover {
+    opacity: 0.9;
+}
+
+/*ABOUT PAGE*/
+
+.about h2 {
+    text-align: center;
+}
+.about .row .col-md-6 {
+    padding: 40px;
+}
+.about .icon-row {
+    background-color: white;
+}
+.about .business {
+    background-color: rgba(0,0,0,0.02);
+}
+.about .carousel .carousel-control span.glyphicon {
+    position: absolute;
+    top: 35%;
+    left: 38%;
+    font-size: 22px;
+}
+.about > .row > .col-md-6 p {
+    margin-bottom: 40px;
+}
+.about .text {
+    align-self: center;
+}
+.about .location {
+    background-color: white;
+}
+.about .location img {
+    border-radius: 18px;
+    max-height: 50vh;
 }
 
 /*LISTS*/
@@ -409,67 +469,6 @@ textarea {
     margin: 0px;
 }
 
-/*ABOUT PAGE*/
-
-.about h2 {
-    margin-top: 0px;
-    margin-bottom: 40px;
-    text-align: center;
-    font-size: 40px;
-}
-.about .row .col-md-6 {
-    padding: 40px;
-}
-.about .row-eq-height .col-md-4 div {
-    padding: 50px;
-    height: 100%;
-    background-color: rgba(0,0,0,0.02);
-}
-.about .row-eq-height .col-md-4 p {
-    margin: 40px auto;
-}
-.about .business {
-    background-color: rgba(0,0,0,0.02);
-}
-.about .carousel {
-    border-radius: 18px;
-    overflow: hidden;
-    align-self: center;
-}
-.about .carousel .carousel-control {
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    margin: auto 3%;
-    background-color: rgba(0,0,0,0.8);
-    background-image: none;
-    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
-}
-.about .carousel .carousel-control:focus {
-    opacity: 0.5;
-}
-.about .carousel .carousel-control:hover  {
-    opacity: 0.9;
-}
-.about .carousel .carousel-control span.glyphicon {
-    position: absolute;
-    top: 35%;
-    left: 38%;
-    font-size: 22px;
-}
-.about > .row > .col-md-6 p {
-    margin-bottom: 40px;
-}
-.about .text {
-    align-self: center;
-}
-.about .location {
-    background-color: white;
-}
-.about .location img {
-    border-radius: 18px;
-    max-height: 50vh;
-}
 .form-group img {
     cursor: pointer;
 }
@@ -480,7 +479,8 @@ textarea {
     }
 }
 @media (max-width: 978px) {
-    .front-page .row {
+    .front-page .row,
+    .icon-row {
         padding-left: 0px;
         padding-right: 0px;
     }
@@ -500,10 +500,6 @@ textarea {
         font-size: 55px;
     }
 
-    .about .row .col-md-10.col-md-offset-1 {
-        background-color: rgba(0,0,0,0.02);
-    }
-
     .row-eq-height {
         display: inherit;
     }
@@ -511,17 +507,7 @@ textarea {
         margin-bottom: 30px;
     }
 
-    .about .row .row-eq-height .col-md-4 {
-        padding: 30px;
-    }
 
-    .about .row .row-eq-height .col-md-4 div {
-        padding: 0px;
-        background-color: transparent;
-        margin-left: 0px;
-        margin-right: 0px;
-        height: 100%;
-    }
 }
 @media (max-width: 560px) {
     .header .greeter h1 {
