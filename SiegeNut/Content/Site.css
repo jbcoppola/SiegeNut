@@ -427,12 +427,12 @@ textarea {
     top: 53%;
     left: 50%;
     max-height: 97vh;
+    max-width: 100vw;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
     box-shadow: 0 0 25px #111;
     -webkit-box-shadow: 0 0 25px #111;
     -moz-box-shadow: 0 0 25px #111;
-    max-width: 940px;
 }
 
 /*PAGINATION*/
