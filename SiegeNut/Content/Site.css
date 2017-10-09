@@ -284,7 +284,8 @@ a, a:hover, a:focus {
 .about > .row > .col-md-6 p {
     margin-bottom: 40px;
 }
-.about .text {
+.about .row .text {
+    padding: 0px 80px;
     align-self: center;
 }
 .about .location {
