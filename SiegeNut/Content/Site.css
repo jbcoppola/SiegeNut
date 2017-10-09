@@ -312,6 +312,11 @@ textarea.form-control {
     margin-top: 35px;
     text-align: center;
 }
+.list .product .image {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
 .list .product .image img {
     display: block;
     margin: auto;
