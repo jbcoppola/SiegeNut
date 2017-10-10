@@ -11,6 +11,7 @@
 
 @section List {
     <script src="~/Content/fieldSelect.js"></script>
+    <script src="~/Content/sorting.js"></script>
     @if (ViewBag.isAuthenticated)
     {
         @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
@@ -40,18 +41,19 @@
                         new SelectListItem() {Text = "1/2 Star", Value="0"},
     }, new { @class = "form-control rating-search" })
                     <span class="input-group-btn">
-                        <input type="submit" class="btn btn-default btn-lg" value="Search" />
+                        <input type="submit" class="btn btn-lg" value="Search" />
                     </span>
                 </div>
             </div>
         }
         <div class="col-lg-6">
-            <div class="btn-group btn-group-lg pull-right">
-                @Html.ActionLink("Product", "Index", new { sortOrder = ViewBag.ProductSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Rating", "Index", new { sortOrder = ViewBag.RatingSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Author", "Index", new { sortOrder = ViewBag.AuthorSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField }, new { @class = "btn btn-default" })
-            </div>
+            @Html.DropDownList("sortBy", new List<SelectListItem>
+    {
+                        new SelectListItem() {Text = "Product", Value = Url.Action("Index", "Reviews", new { sortOrder = ViewBag.ProductSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })},
+                        new SelectListItem() {Text = "Rating", Value= Url.Action("Index", "Reviews", new { sortOrder = ViewBag.RatingSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })},
+                        new SelectListItem() {Text = "Author", Value= Url.Action("Index", "Reviews", new { sortOrder = ViewBag.AuthorSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })},
+                        new SelectListItem() {Text = "Date", Value= Url.Action("Index", "Reviews", new { sortOrder = ViewBag.DateSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })}
+    },"Sort By", new { @class = "btn btn-lg pull-right" })
         </div>
     </div>
     @foreach (var item in Model)

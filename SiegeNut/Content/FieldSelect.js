@@ -6,7 +6,7 @@
     else {
         $('select.rating-search').hide();
     }
-    $("select.btn").change(function () {
+    $('select.btn[name="searchField"]').change(function () {
         if ($(this).children(":selected").attr('value') == "Rating") {
             $('input.text-search').hide();
             $('select.rating-search').show();
