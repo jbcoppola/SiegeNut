@@ -19,7 +19,6 @@
     });
     $(function () {
         $('.sort-btns select.btn').change(function () {
-            console.log("changed");
             var url = $(this).val();
             if (url != null && url != '') {
                 window.location.href = url;

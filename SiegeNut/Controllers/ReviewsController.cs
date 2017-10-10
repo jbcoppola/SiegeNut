@@ -32,8 +32,12 @@ namespace SiegeNut.Controllers
         public ActionResult Index(string sortBy, string sortOrder, string currentField, string currentSearch, string searchString, int? searchRating, string searchField, int? page)
         {
             ViewBag.CurrentSort = sortBy;
+            ViewBag.CurrentOrder = sortOrder;
             ViewBag.CurrentUser = User.Identity.GetUserId();
-            
+            if (currentField == "Rating") { ViewBag.CurrentSearch = searchRating; }
+            else { ViewBag.CurrentSearch = searchString; }
+            ViewBag.CurrentField = searchField;
+
             if (searchString != null || searchRating != null)
             {
                 page = 1;
@@ -43,9 +47,7 @@ namespace SiegeNut.Controllers
                 searchField = currentField;
                 searchString = currentSearch;
             }
-            if (currentField == "Rating") { ViewBag.CurrentSearch = searchRating; }
-            else { ViewBag.CurrentSearch = searchString; }
-            ViewBag.CurrentField = searchField;
+            
             ViewBag.isAdmin = IsAdmin();
             ViewBag.isAuthenticated = User.Identity.IsAuthenticated;
             var reviews = db.Reviews.Include(r => r.Author).Include(r => r.Product);
