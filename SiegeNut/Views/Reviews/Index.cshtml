@@ -11,7 +11,6 @@
 
 @section List {
     <script src="~/Content/fieldSelect.js"></script>
-    <script src="~/Content/sorting.js"></script>
     @if (ViewBag.isAuthenticated)
     {
         @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
@@ -24,11 +23,10 @@
                     <span class="input-group-btn">
                         @Html.DropDownList("searchField", new List<SelectListItem>
     {
-                        new SelectListItem() {Text = "Search By", Value="", Selected=true},
                         new SelectListItem() {Text = "Product", Value="Product"},
                         new SelectListItem() {Text = "Rating", Value="Rating" },
                         new SelectListItem() {Text = "Author", Value="Author"}
-    }, new { @class = "btn" })
+    },"Search By", new { @class = "btn" })
                     </span>
                     @Html.TextBox("searchString", ViewBag.CurrentSearch as string, new { @class = "form-control text-search" })
                     @Html.DropDownList("searchRating", new List<SelectListItem>
@@ -47,13 +45,20 @@
             </div>
         }
         <div class="col-lg-6">
+            <div class="sort-btns btn-group btn-group-lg pull-right">
             @Html.DropDownList("sortBy", new List<SelectListItem>
     {
-                        new SelectListItem() {Text = "Product", Value = Url.Action("Index", "Reviews", new { sortOrder = ViewBag.ProductSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })},
-                        new SelectListItem() {Text = "Rating", Value= Url.Action("Index", "Reviews", new { sortOrder = ViewBag.RatingSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })},
-                        new SelectListItem() {Text = "Author", Value= Url.Action("Index", "Reviews", new { sortOrder = ViewBag.AuthorSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })},
-                        new SelectListItem() {Text = "Date", Value= Url.Action("Index", "Reviews", new { sortOrder = ViewBag.DateSortParm, currentSearch = ViewBag.CurrentSearch, currentField = ViewBag.CurrentField })}
-    },"Sort By", new { @class = "btn btn-lg pull-right" })
+                        new SelectListItem() {Text = "Product", Value = Url.Action("Index", "Reviews", new { sortBy = "Product", searchString = ViewBag.CurrentSearch, searchField = ViewBag.CurrentField })},
+                        new SelectListItem() {Text = "Rating", Value= Url.Action("Index", "Reviews", new { sortBy = "Rating", searchString = ViewBag.CurrentSearch, searchField = ViewBag.CurrentField })},
+                        new SelectListItem() {Text = "Author", Value= Url.Action("Index", "Reviews", new { sortBy = "Author", searchString = ViewBag.CurrentSearch, searchField = ViewBag.CurrentField })},
+                        new SelectListItem() {Text = "Date", Value= Url.Action("Index", "Reviews", new { sortBy = "Date", searchString = ViewBag.CurrentSearch, searchField = ViewBag.CurrentField })}
+    },"Sort By", new { @class = "btn" })
+            @Html.DropDownList("sortOrder", new List<SelectListItem>
+    {
+                        new SelectListItem() {Text = "Ascending", Value = Url.Action("Index", "Reviews", new { sortOrder = "Ascending", searchString = ViewBag.CurrentSearch, searchField = ViewBag.CurrentField })},
+                        new SelectListItem() {Text = "Descending", Value= Url.Action("Index", "Reviews", new { sortOrder = "Descending", searchString = ViewBag.CurrentSearch, searchField = ViewBag.CurrentField })}
+    }, "Order", new { @class = "btn" })
+            </div>
         </div>
     </div>
     @foreach (var item in Model)
@@ -79,6 +84,6 @@
     <div class="page-box text-right">
         <p class="text-center">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</p>
         @Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page, sortOrder = ViewBag.CurrentSort, currentSearch = ViewBag.CurrentSearch }))
+    new { page, sortBy = ViewBag.CurrentSort, currentSearch = ViewBag.CurrentSearch }))
     </div>
 }

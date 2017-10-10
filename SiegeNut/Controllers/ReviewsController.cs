@@ -29,14 +29,9 @@ namespace SiegeNut.Controllers
         }
 
         // GET: Reviews
-        public ActionResult Index(string sortOrder, string currentField, string currentSearch, string searchString, int? searchRating, string searchField, int? page)
+        public ActionResult Index(string sortBy, string sortOrder, string currentField, string currentSearch, string searchString, int? searchRating, string searchField, int? page)
         {
-            ViewBag.CurrentSort = sortOrder;
-            ViewBag.ProductSortParm = String.IsNullOrEmpty(sortOrder) || sortOrder == "Product" ? "product_desc" : "Product";
-            ViewBag.RatingSortParm = sortOrder == "Rating" ? "rating_desc" : "Rating";
-            ViewBag.AuthorSortParm = sortOrder == "Author" ? "author_desc" : "Author";
-            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            ViewBag.CurrentField = searchField;
+            ViewBag.CurrentSort = sortBy;
             ViewBag.CurrentUser = User.Identity.GetUserId();
             
             if (searchString != null || searchRating != null)
@@ -50,6 +45,7 @@ namespace SiegeNut.Controllers
             }
             if (currentField == "Rating") { ViewBag.CurrentSearch = searchRating; }
             else { ViewBag.CurrentSearch = searchString; }
+            ViewBag.CurrentField = searchField;
             ViewBag.isAdmin = IsAdmin();
             ViewBag.isAuthenticated = User.Identity.IsAuthenticated;
             var reviews = db.Reviews.Include(r => r.Author).Include(r => r.Product);
@@ -94,35 +90,45 @@ namespace SiegeNut.Controllers
                         break;
                 }
             }
-            switch (sortOrder)
+            if (sortOrder == "Ascending")
             {
-                case "Product":
-                    reviews = reviews.OrderBy(r => r.Product.Name);
-                    break;
-                case "product_desc":
-                    reviews = reviews.OrderByDescending(r => r.Product.Name);
-                    break;
-                case "Rating":
-                    reviews = reviews.OrderBy(s => s.Rating);
-                    break;
-                case "rating_desc":
-                    reviews = reviews.OrderByDescending(s => s.Rating);
-                    break;
-                case "Author":
-                    reviews = reviews.OrderBy(s => s.Author.UserName);
-                    break;
-                case "author_desc":
-                    reviews = reviews.OrderByDescending(s => s.Author.UserName);
-                    break;
-                case "Date":
-                    reviews = reviews.OrderBy(s => s.DateWritten);
-                    break;
-                case "date_desc":
-                    reviews = reviews.OrderByDescending(s => s.DateWritten);
-                    break;
-                default:
-                    reviews = reviews.OrderBy(s => s.Product.Name);
-                    break;
+                switch (sortBy)
+                {
+                    case "Product":
+                        reviews = reviews.OrderBy(r => r.Product.Name);
+                        break;
+                    case "Rating":
+                        reviews = reviews.OrderBy(s => s.Rating);
+                        break;
+                    case "Author":
+                        reviews = reviews.OrderBy(s => s.Author.UserName);
+                        break;
+                    case "Date":
+                        goto default;
+                    default:
+                        reviews = reviews.OrderBy(s => s.DateWritten);
+                        break;
+                }
+            }
+            else
+            {
+                switch (sortBy)
+                {
+                    case "Product":
+                        reviews = reviews.OrderByDescending(r => r.Product.Name);
+                        break;
+                    case "Rating":
+                        reviews = reviews.OrderByDescending(s => s.Rating);
+                        break;
+                    case "Author":
+                        reviews = reviews.OrderByDescending(s => s.Author.UserName);
+                        break;
+                    case "Date":
+                        goto default;
+                    default:
+                        reviews = reviews.OrderByDescending(s => s.DateWritten);
+                        break;
+                }
             }
 
             int pageSize = 5;

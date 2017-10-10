@@ -279,7 +279,6 @@
     <Content Include="Content\loginpage.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\ratings.js" />
-    <Content Include="Content\sorting.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

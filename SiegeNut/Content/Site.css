@@ -345,8 +345,9 @@ textarea.form-control {
     margin-bottom: 0px;
     margin-left: 3%;
 }
-#sortBy {
-    padding: 8px 14px;
+.sort-btns .btn {
+    padding: 8px 12px;
+    border-radius: 6px 0 0 6px;
 }
 .list .item .img-rounded {
     margin: 50px 0px;
