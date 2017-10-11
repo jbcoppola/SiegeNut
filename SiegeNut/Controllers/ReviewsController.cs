@@ -35,8 +35,8 @@ namespace SiegeNut.Controllers
             model.SortBy = sortBy;
             model.SortOrder = sortOrder;
             model.CurrentUser = User.Identity.GetUserId();
-            //if (currentField == "Rating") { ViewBag.CurrentSearch = searchRating; }
-            //else { ViewBag.CurrentSearch = searchString; }
+            if (searchField == "Rating") { model.SearchRating = searchRating; }
+            else { model.SearchString = searchString; }
             model.SearchField = searchField;
 
             if (searchString != null || searchRating != null)
@@ -45,8 +45,8 @@ namespace SiegeNut.Controllers
             }
             else
             {
-                searchField = currentField;
-                searchString = currentSearch;
+                model.SearchField = currentField;
+                model.SearchString = currentSearch;
             }
             
             model.IsAdmin = IsAdmin();
