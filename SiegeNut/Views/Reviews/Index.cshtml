@@ -60,6 +60,16 @@
                         new SelectListItem() {Text = "Ascending", Value = Url.Action("Index", "Reviews", new { sortOrder = "Ascending", sortBy=Model.SortBy, searchString = Model.SearchString, searchField = Model.SearchField })},
                         new SelectListItem() {Text = "Descending", Value= Url.Action("Index", "Reviews", new { sortOrder = "Descending", sortBy=Model.SortBy, searchString = Model.SearchString, searchField = Model.SearchField })}
     }, "Order", new { @class = "btn" })
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $('.sort-btns select.btn[name="SortBy"]').children().each(function () {
+                            if ($(this).text() == "@Model.SortBy") { $(this).attr('selected', 'selected') };
+                        });
+                        $('.sort-btns select.btn[name="SortOrder"]').children().each(function () {
+                            if ($(this).text() == "@Model.SortOrder") { $(this).attr('selected', 'selected') };
+                        });
+                    });
+                </script>
             </div>
         </div>
     </div>
