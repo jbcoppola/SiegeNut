@@ -1,12 +1,12 @@
 ﻿$(document).ready(function () {
-    if ($('select[name="searchField"] :selected').attr('value') == "Rating") {
+    if ($('select[name="SearchField"] :selected').attr('value') == "Rating") {
         $('select.rating-search').show().attr("disabled", false);
         $('input.text-search').hide().attr("disabled", true);
     }
     else {
         $('select.rating-search').hide().attr("disabled", true);
     }
-    $('select.btn[name="searchField"]').change(function () {
+    $('select.btn[name="SearchField"]').change(function () {
         if ($(this).children(":selected").attr('value') == "Rating") {
             $('input.text-search').hide().attr("disabled", true);
             $('select.rating-search').show().attr("disabled", false);

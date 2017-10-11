@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<SiegeNut.Models.Review>
+﻿@model SiegeNut.Models.ReviewViewModel
 @using PagedList.Mvc;
 
 @{
@@ -11,7 +11,7 @@
 
 @section List {
     <script src="~/Content/searchBar.js"></script>
-    @if (ViewBag.isAuthenticated)
+    @if (Model.IsAuthenticated)
     {
         @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-lg btn-create" })
     }
@@ -21,15 +21,15 @@
             <div class="col-lg-6 hidden-sm hidden-xs">
                 <div class="input-group input-group-lg">
                     <span class="input-group-btn">
-                        @Html.DropDownList("searchField", new List<SelectListItem>
+                        @Html.DropDownListFor(r => r.SearchField, new List<SelectListItem>
     {
                         new SelectListItem() {Text = "Product", Value="Product"},
                         new SelectListItem() {Text = "Rating", Value="Rating" },
                         new SelectListItem() {Text = "Author", Value="Author"}
-    },"Search By", new { @class = "btn" })
+    }, "Search By", new { @class = "btn" })
                     </span>
-                    @Html.TextBox("searchString", ViewBag.CurrentSearch as string, new { @class = "form-control text-search" })
-                    @Html.DropDownList("searchRating", new List<SelectListItem>
+                    @Html.TextBoxFor(r => r.SearchString, new { @class = "form-control text-search" })
+                    @Html.DropDownListFor(r => r.SearchRating, new List<SelectListItem>
     {
                         new SelectListItem() {Text = "5 Stars", Value="5"},
                         new SelectListItem() {Text = "4-5 Stars", Value="4"},
@@ -38,8 +38,8 @@
                         new SelectListItem() {Text = "1-2 Stars", Value="1"},
                         new SelectListItem() {Text = "1/2 Star", Value="0"},
     }, new { @class = "form-control rating-search" })
-                    <input type="hidden" name="sortBy" ViewBag.CurrentSort as string />
-                    <input type="hidden" name="sortOrder" ViewBag.CurrentOrder as string />
+                    @Html.HiddenFor(r => r.SortBy)
+                    @Html.HiddenFor(r => r.SortOrder)
                     <span class="input-group-btn">
                         <input type="submit" class="btn btn-lg" value="Search" />
                     </span>
@@ -48,22 +48,22 @@
         }
         <div class="col-lg-6">
             <div class="sort-btns btn-group btn-group-lg pull-right">
-            @Html.DropDownList("sortBy", new List<SelectListItem>
+                @Html.DropDownListFor(r => r.SortBy, new List<SelectListItem>
     {
-                        new SelectListItem() {Text = "Product", Value = Url.Action("Index", "Reviews", new { sortBy = "Product", sortOrder=ViewBag.CurrentOrder, searchString = ViewBag.CurrentSearch, searchField = ViewBag.CurrentField })},
-                        new SelectListItem() {Text = "Rating", Value= Url.Action("Index", "Reviews", new { sortBy = "Rating", sortOrder=ViewBag.CurrentOrder, searchString = ViewBag.CurrentSearch, searchField = ViewBag.CurrentField })},
-                        new SelectListItem() {Text = "Author", Value= Url.Action("Index", "Reviews", new { sortBy = "Author", sortOrder=ViewBag.CurrentOrder, searchString = ViewBag.CurrentSearch, searchField = ViewBag.CurrentField })},
-                        new SelectListItem() {Text = "Date", Value= Url.Action("Index", "Reviews", new { sortBy = "Date", sortOrder=ViewBag.CurrentOrder, searchString = ViewBag.CurrentSearch, searchField = ViewBag.CurrentField })}
-    },"Sort By", new { @class = "btn" })
-            @Html.DropDownList("sortOrder", new List<SelectListItem>
+                        new SelectListItem() {Text = "Product", Value = Url.Action("Index", "Reviews", new { sortBy = "Product", sortOrder=Model.SortOrder, searchString = Model.SearchString, searchField = Model.SearchField })},
+                        new SelectListItem() {Text = "Rating", Value= Url.Action("Index", "Reviews", new { sortBy = "Rating", sortOrder=Model.SortOrder, searchString = Model.SearchString, searchField = Model.SearchField })},
+                        new SelectListItem() {Text = "Author", Value= Url.Action("Index", "Reviews", new { sortBy = "Author", sortOrder=Model.SortOrder, searchString = Model.SearchString, searchField = Model.SearchField })},
+                        new SelectListItem() {Text = "Date", Value= Url.Action("Index", "Reviews", new { sortBy = "Date", sortOrder=Model.SortOrder, searchString = Model.SearchString, searchField = Model.SearchField })}
+    }, "Sort By", new { @class = "btn" })
+                @Html.DropDownListFor(r => r.SortOrder, new List<SelectListItem>
     {
-                        new SelectListItem() {Text = "Ascending", Value = Url.Action("Index", "Reviews", new { sortOrder = "Ascending", sortBy=ViewBag.CurrentSort, searchString = ViewBag.CurrentSearch, searchField = ViewBag.CurrentField })},
-                        new SelectListItem() {Text = "Descending", Value= Url.Action("Index", "Reviews", new { sortOrder = "Descending", sortBy=ViewBag.CurrentSort, searchString = ViewBag.CurrentSearch, searchField = ViewBag.CurrentField })}
+                        new SelectListItem() {Text = "Ascending", Value = Url.Action("Index", "Reviews", new { sortOrder = "Ascending", sortBy=Model.SortBy, searchString = Model.SearchString, searchField = Model.SearchField })},
+                        new SelectListItem() {Text = "Descending", Value= Url.Action("Index", "Reviews", new { sortOrder = "Descending", sortBy=Model.SortBy, searchString = Model.SearchString, searchField = Model.SearchField })}
     }, "Order", new { @class = "btn" })
             </div>
         </div>
     </div>
-    @foreach (var item in Model)
+    @foreach (var item in Model.Reviews)
     {
         <div class="row item">
             @Html.Partial("_ReviewBody", item)
@@ -72,11 +72,11 @@
                 {
                     @Html.ActionLink("Reviews by this user", "Index", "Reviews", new { searchString = item.Author.UserName, searchField = "Author" }, new { @class = "btn" })
                 }
-                @if (ViewBag.CurrentUser == item.AuthorID || ViewBag.isAdmin)
+                @if (ViewBag.CurrentUser == item.AuthorID || Model.IsAdmin)
                 {
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
                 }
-                @if (ViewBag.CurrentUser == item.AuthorID || ViewBag.isAdmin)
+                @if (ViewBag.CurrentUser == item.AuthorID || Model.IsAdmin)
                 {
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn" })
                 }
@@ -84,8 +84,8 @@
         </div>
     }
     <div class="page-box text-right">
-        <p class="text-center">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</p>
-        @Html.PagedListPager(Model, page => Url.Action("Index",
+        <p class="text-center">Page @(Model.Reviews.PageCount < Model.Reviews.PageNumber ? 0 : Model.Reviews.PageNumber) of @Model.Reviews.PageCount</p>
+        @Html.PagedListPager(Model.Reviews, page => Url.Action("Index",
     new { page, sortBy = ViewBag.CurrentSort, sortOrder = ViewBag.CurrentOrder, currentField = ViewBag.CurrentField, currentSearch = ViewBag.CurrentSearch }))
     </div>
 }

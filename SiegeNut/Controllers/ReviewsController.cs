@@ -31,12 +31,13 @@ namespace SiegeNut.Controllers
         // GET: Reviews
         public ActionResult Index(string sortBy, string sortOrder, string currentField, string currentSearch, string searchString, int? searchRating, string searchField, int? page)
         {
-            ViewBag.CurrentSort = sortBy;
-            ViewBag.CurrentOrder = sortOrder;
-            ViewBag.CurrentUser = User.Identity.GetUserId();
-            if (currentField == "Rating") { ViewBag.CurrentSearch = searchRating; }
-            else { ViewBag.CurrentSearch = searchString; }
-            ViewBag.CurrentField = searchField;
+            ReviewViewModel model = new ReviewViewModel();
+            model.SortBy = sortBy;
+            model.SortOrder = sortOrder;
+            model.CurrentUser = User.Identity.GetUserId();
+            //if (currentField == "Rating") { ViewBag.CurrentSearch = searchRating; }
+            //else { ViewBag.CurrentSearch = searchString; }
+            model.SearchField = searchField;
 
             if (searchString != null || searchRating != null)
             {
@@ -48,8 +49,8 @@ namespace SiegeNut.Controllers
                 searchString = currentSearch;
             }
             
-            ViewBag.isAdmin = IsAdmin();
-            ViewBag.isAuthenticated = User.Identity.IsAuthenticated;
+            model.IsAdmin = IsAdmin();
+            model.IsAuthenticated = User.Identity.IsAuthenticated;
             var reviews = db.Reviews.Include(r => r.Author).Include(r => r.Product);
             if (!String.IsNullOrEmpty(searchString) || searchRating != null)
             {
@@ -135,7 +136,10 @@ namespace SiegeNut.Controllers
 
             int pageSize = 5;
             int pageNumber = (page ?? 1);
-            return View(reviews.ToPagedList(pageNumber, pageSize));
+
+            model.Reviews = reviews.ToPagedList(pageNumber, pageSize);
+
+            return View(model);
         }
         
         // GET: Reviews/Create
