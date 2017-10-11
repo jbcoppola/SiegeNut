@@ -59,6 +59,9 @@ a, a:hover, a:focus {
 .navbar-brand {
     font-family: 'Kumar One', cursive;
 }
+select.btn option {
+    background-color: white;
+}
 .btn {
     border: 1px solid lightgray;
     background-color: transparent;
