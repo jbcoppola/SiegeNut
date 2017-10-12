@@ -171,8 +171,6 @@ select.btn option {
     font-size: 70px;
     padding: 10px;
     margin-bottom: 10px;
-    word-break: break-all;
-    word-wrap: break-word;
 }
 .header .greeter {
     max-width: 700px;
