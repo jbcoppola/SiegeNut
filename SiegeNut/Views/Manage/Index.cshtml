@@ -6,22 +6,22 @@
     <h1>@ViewBag.Title</h1>
 }
 
-<p class="text-success">@ViewBag.StatusMessage</p>
-<div class="row info">
-    <h4>Account Information</h4>
-    <hr />
-    <div class="col-md-12">
-        
+<div class="row manage">
+    <div class="col-md-6 col-md-offset-3">
+        <p class="text-success">@ViewBag.StatusMessage</p>
+        <h4>Account Information</h4>
+        <hr />
         @if (Model.HasPassword)
             {
-            @Html.ActionLink("Change password", "ChangePassword", null, new { @class = "btn" })
+            @Html.ActionLink("Change password", "ChangePassword", null, new { @class = "btn btn-lg" })
         }
         else
         {
-            @Html.ActionLink("Create", "SetPassword", null, new { @class = "btn" })
+            @Html.ActionLink("Create", "SetPassword", null, new { @class = "btn btn-lg" })
         }
 
-        @Html.ActionLink("Your Reviews", "Index", "Reviews", new { searchString = ViewBag.UserName, searchField = "Author" }, new { @class = "btn" })
+        @Html.ActionLink("Your Reviews", "Index", "Reviews", new { searchString = ViewBag.UserName, searchField = "Author" }, new { @class = "btn btn-lg" })
     </div>
 </div>
+
 

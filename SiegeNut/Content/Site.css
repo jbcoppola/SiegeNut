@@ -125,7 +125,8 @@ select.btn option {
     max-width: 100%;
     min-width: 100%;
 }
-.form .col-sm-6 {
+.form .col-sm-6,
+.manage .col-md-6 {
     margin-top: 30px;
     padding: 30px 50px;
     background-color: white;
@@ -368,7 +369,6 @@ textarea.form-control {
 .rating-search {
     display: none;
 }
-
 /*PRODUCTS PAGE*/
 
 .list .product .lightbox-trigger:hover {
