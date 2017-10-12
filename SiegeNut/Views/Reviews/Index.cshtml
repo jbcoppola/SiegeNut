@@ -18,7 +18,7 @@
     <div class="row search-row">
         @using (Html.BeginForm("Index", "Reviews", FormMethod.Get, new { name = "search-form" }))
         {
-            <div class="col-lg-6 hidden-sm hidden-xs">
+            <div class="col-md-6 hidden-xs">
                 <div class="input-group input-group-lg">
                     <span class="input-group-btn">
                         @Html.DropDownListFor(r => r.SearchField, new List<SelectListItem>
@@ -46,7 +46,7 @@
                 </div>
             </div>
         }
-        <div class="col-lg-6">
+        <div class="col-md-6">
             <div class="sort-btns btn-group btn-group-lg pull-right">
                 @Html.DropDownListFor(r => r.SortBy, new List<SelectListItem>
     {

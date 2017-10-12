@@ -316,11 +316,12 @@ textarea.form-control {
     margin-top: 30px;
 }
 .review-title p {
-    margin: 0px;
+    margin-top: 2px;
+    margin-bottom: 0px;
 }
 .review-title {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     margin-bottom: 7px;
 }
 .review-title div:first-child {
@@ -360,8 +361,11 @@ textarea.form-control {
     padding: 5px 0px;
     margin: 3px 3%;
 }
-.list .search-row .col-lg-6 {
+.list .search-row .col-md-6 {
     padding: 5px 0px;
+}
+.list .search-row .btn {
+    margin-top: 0px;
 }
 .rating-search {
     display: none;
@@ -520,6 +524,9 @@ textarea {
     }
 }
 @media (max-width: 560px) {
+    h1 {
+    font-size: 45px;
+    }
     .header .greeter h1 {
         font-size: 40px;
     }
@@ -548,6 +555,7 @@ textarea {
 }
 @media (max-width: 358px) {
     .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+        margin-top: 5px;
         border-radius: 6px 0 0 6px;
     }
 }

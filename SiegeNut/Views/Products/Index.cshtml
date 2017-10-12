@@ -22,7 +22,7 @@
     @foreach (var item in Model)
     {
         <div class="row row-eq-height item product">
-            <div class="col-md-6 text">
+            <div class="col-lg-6 text">
                     <div>
                         <h2>@Html.DisplayFor(model => item.Name)</h2>
                         @if (!string.IsNullOrEmpty(item.Description))
@@ -42,7 +42,7 @@
                         }
                     </div>
             </div>
-            <div class="col-md-6 image">
+            <div class="col-lg-6 image">
                 @if (!string.IsNullOrEmpty(item.ImageURL))
                 {
                     <img src="@Url.Content(item.ImageURL)" class="img-responsive img-rounded lightbox-trigger" alt="Image" />
