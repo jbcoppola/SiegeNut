@@ -361,7 +361,8 @@ textarea.form-control {
     padding: 5px 0px;
     margin: 3px 3%;
 }
-.list .search-row .col-md-6 {
+.list .search-row > div,
+.list .search-row > form > div {
     padding: 5px 0px;
 }
 .list .search-row .btn {
