@@ -31,7 +31,7 @@
                         }
                     </div>
                     <div>
-                        @Html.ActionLink("Reviews for this product", "Index", "Reviews", new { searchString = item.Name, searchField = "Product" }, new { @class = "btn" })
+                        @Html.ActionLink("Product reviews", "Index", "Reviews", new { searchString = item.Name, searchField = "Product" }, new { @class = "btn" })
                         @if (ViewBag.isAdmin)
                         {
                             @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn" })
