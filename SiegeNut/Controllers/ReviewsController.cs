@@ -61,29 +61,11 @@ namespace SiegeNut.Controllers
                                        || r.Product.Name.Contains(searchString));
                         break;
                     case "Rating":
-                        switch (searchRating)
+                        if (searchRating >= 1 && searchRating <= 4)
                         {
-                            case 5:
-                                reviews = reviews.Where(r => r.Rating == 5.0);
-                                break;
-                            case 4:
-                                reviews = reviews.Where(r => r.Rating <= 5.0 && r.Rating >= 4.0);
-                                break;
-                            case 3:
-                                reviews = reviews.Where(r => r.Rating <= 4.0 && r.Rating >= 3.0);
-                                break;
-                            case 2:
-                                reviews = reviews.Where(r => r.Rating <= 3.0 && r.Rating >= 2.0);
-                                break;
-                            case 1:
-                                reviews = reviews.Where(r => r.Rating <= 2.0 && r.Rating >= 1.0);
-                                break;
-                            case 0:
-                                reviews = reviews.Where(r => r.Rating == 0.5);
-                                break;
-                            default:
-                                break;
+                            reviews = reviews.Where(r => r.Rating <= searchRating + 1 && r.Rating >= searchRating);
                         }
+                        else { reviews = reviews.Where(r => r.Rating == searchRating); }
                         break;
                     case "Author":
                         reviews = reviews.Where(r => r.Author.UserName.Contains(searchString));
@@ -100,15 +82,15 @@ namespace SiegeNut.Controllers
                         reviews = reviews.OrderBy(r => r.Product.Name);
                         break;
                     case "Rating":
-                        reviews = reviews.OrderBy(s => s.Rating);
+                        reviews = reviews.OrderBy(r => r.Rating);
                         break;
                     case "Author":
-                        reviews = reviews.OrderBy(s => s.Author.UserName);
+                        reviews = reviews.OrderBy(r => r.Author.UserName);
                         break;
                     case "Date":
                         goto default;
                     default:
-                        reviews = reviews.OrderBy(s => s.DateWritten);
+                        reviews = reviews.OrderBy(r => r.DateWritten);
                         break;
                 }
             }
@@ -120,15 +102,15 @@ namespace SiegeNut.Controllers
                         reviews = reviews.OrderByDescending(r => r.Product.Name);
                         break;
                     case "Rating":
-                        reviews = reviews.OrderByDescending(s => s.Rating);
+                        reviews = reviews.OrderByDescending(r => r.Rating);
                         break;
                     case "Author":
-                        reviews = reviews.OrderByDescending(s => s.Author.UserName);
+                        reviews = reviews.OrderByDescending(r => r.Author.UserName);
                         break;
                     case "Date":
                         goto default;
                     default:
-                        reviews = reviews.OrderByDescending(s => s.DateWritten);
+                        reviews = reviews.OrderByDescending(r => r.DateWritten);
                         break;
                 }
             }
