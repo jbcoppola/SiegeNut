@@ -86,8 +86,7 @@ namespace SiegeNut.Controllers
                         }
                         break;
                     case "Author":
-                        reviews = reviews.Where(r => r.Author.UserName.Contains(searchString)
-                                       || r.Author.UserName.Contains(searchString));
+                        reviews = reviews.Where(r => r.Author.UserName.Contains(searchString));
                         break;
                     default:
                         break;
